@@ -3,14 +3,16 @@ import 'package:effervescence22/ams.dart';
 import 'package:flutter/material.dart';
 import 'package:tcard/tcard.dart';
 
+import 'list.dart';
+
 class events extends StatefulWidget {
   @override
   _eventsState createState() => _eventsState();
 }
 List<Widget> routes = [
-
+MainStage(),MainStage(),MainStage(),MainStage(),MainStage(),MainStage(),MainStage(),MainStage(),MainStage(),MainStage(),
 ];
-List<String> name=["Main Stage","Dance","Music","Dramatics","AMS","Fine Arts","Main Stage","Informal","Gamming","Literature",""];
+List<String> name=["Main Stage","Dance","Music","Dramatics","AMS","Fine Arts","Main Stage","Informal","Gamming","Literature",];
 class _eventsState extends State<events> {
   TCardController _controller = TCardController();
 
@@ -20,7 +22,7 @@ class _eventsState extends State<events> {
   @override
   Widget build(BuildContext context) {
     List<Widget> cards = List.generate(
-      images.length,
+      name.length,
           (int index) {
         return Container(
           decoration: BoxDecoration(
@@ -38,11 +40,12 @@ class _eventsState extends State<events> {
           child: Column(
             children: [
               SizedBox(height: 100,),
-              ElevatedButton(onPressed: () {
+              RaisedButton(
+                color:Colors.black38,onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => Slime()));
+                    builder: (context) => routes[index]));
               },
-                child: Text("Events", style: TextStyle(color: Colors.black),),),
+                child: Text("Events", style: TextStyle(color: Colors.lightGreenAccent),),),
               SizedBox(height: 20,),
               Text(name[index], style: TextStyle(color: Colors.black,
                   fontSize: 27,
@@ -85,7 +88,7 @@ class _eventsState extends State<events> {
                     print(_controller);
                     _controller.back();
                   },
-                  icon: Icon(Icons.arrow_forward,color: Colors.lightGreenAccent,),
+                  icon: Icon(Icons.arrow_back,color: Colors.lightGreenAccent,),
 
                 ),
                 // OutlineButton(
@@ -98,7 +101,7 @@ class _eventsState extends State<events> {
                   onPressed: () {
                     _controller.forward();
                   },
-                   icon: Icon(Icons.arrow_back,color: Colors.green,),
+                   icon: Icon(Icons.arrow_forward,color: Colors.lightGreenAccent,),
                 ),
               ],
             ),

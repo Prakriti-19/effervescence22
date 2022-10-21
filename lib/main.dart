@@ -4,8 +4,10 @@ import 'package:effervescence22/cards.dart';
 import 'package:effervescence22/slides.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:flutter/material.dart';
-
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: HomeScreen()));
@@ -27,7 +29,7 @@ class HomeScreen extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Color(0xFF192A56),
+        backgroundColor: Colors.black,
         body: Container(
           color: Color(0xFF192A56),
           child: Column(
@@ -42,7 +44,9 @@ class HomeScreen extends StatelessWidget {
                   builder: (BuildContext context, Duration value, Widget child) {
                     final days=value.inDays;
                     var min= (value.inMinutes-Duration(days: 31-p_day+8,hours:24-p_hour,seconds: 60-p_sec).inMinutes)%60;
-                    final hours= value.inHours%24-1;
+                    var hours= value.inHours%24-1;
+                    if (hours==-1)
+                      hours=23;
                     var seconds=(value.inSeconds-Duration(days: 31-p_day+8,hours:24-p_hour,minutes: 60-p_min).inSeconds)%60;
                      return Padding(
                         padding: const EdgeInsets.symmetric(vertical: 5),
@@ -50,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                           child: Text('$days:$hours:$min:$seconds',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.lightGreenAccent,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 50)),
                         ));
@@ -64,17 +68,17 @@ class HomeScreen extends StatelessWidget {
               FabCircularMenu(
                 key: fabKey,
                 alignment: Alignment.bottomRight,
-                ringColor: Colors.white.withAlpha(25),
+                ringColor: Colors.lightGreenAccent.withOpacity(0.75),
                 ringDiameter: 500.0,
                 ringWidth: 150.0,
                 fabSize: 64.0,
                 fabElevation: 8.0,
                 fabIconBorder: CircleBorder(),
 
-                fabOpenColor: Colors.white,
-                fabCloseColor: Colors.white,
-                fabOpenIcon: Icon(Icons.menu, color: Color(0xFF192A56)),
-                fabCloseIcon: Icon(Icons.close, color: Color(0xFF192A56)),
+                fabOpenColor: Colors.lightGreenAccent.withOpacity(0.5),
+                fabCloseColor: Colors.lightGreenAccent.withOpacity(0.75),
+                fabOpenIcon: Icon(Icons.menu, color:  Colors.lightGreenAccent),
+                fabCloseIcon: Icon(Icons.close, color:  Colors.lightGreenAccent),
                 fabMargin: const EdgeInsets.all(16.0),
                 animationDuration: const Duration(milliseconds: 800),
                 animationCurve: Curves.easeInOutCirc,
@@ -86,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                     },
                     shape: CircleBorder(),
                     padding: const EdgeInsets.all(24.0),
-                    child: Text("Events",style: TextStyle(color: Colors.white),),
+                    child: Text("Events",style: TextStyle(color: Colors.black),),
                   ),
                   RawMaterialButton(
                     onPressed: () {
@@ -95,7 +99,7 @@ class HomeScreen extends StatelessWidget {
                     },
                     shape: CircleBorder(),
                     padding: const EdgeInsets.all(24.0),
-                    child: Text("Sponsors",style: TextStyle(color: Colors.white),),
+                    child: Text("Sponsors",style: TextStyle(color: Colors.black),),
                   ),
                   RawMaterialButton(
                     onPressed: () {
@@ -104,7 +108,7 @@ class HomeScreen extends StatelessWidget {
                     },
                     shape: CircleBorder(),
                     padding: const EdgeInsets.all(24.0),
-                    child: Text("Pro shows",style: TextStyle(color: Colors.white),),
+                    child: Text("Pro shows",style: TextStyle(color: Colors.black),),
                   ),
                   RawMaterialButton(
                     // onPressed: () {
@@ -113,7 +117,7 @@ class HomeScreen extends StatelessWidget {
                     // },
                     shape: CircleBorder(),
                     padding: const EdgeInsets.all(24.0),
-                    child: Text("Info",style: TextStyle(color: Colors.white),),
+                    child: Text("Info",style: TextStyle(color: Colors.black),),
                   ),
                   RawMaterialButton(
                     // onPressed: () {
