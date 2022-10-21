@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "676020220321",
+    "project_id": "lost-and-found-b1609",
+    "storage_bucket": "lost-and-found-b1609.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:676020220321:android:b0b14774ecd64ee523dbe0",
+        "android_client_info": {
+          "package_name": "com.example.effervescence22"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "676020220321-ip5himr8o679qoei313geurgsnmenqse.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzyY1QF8swtLTef0xPAOeLY0C9fqS4wFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "676020220321-ip5himr8o679qoei313geurgsnmenqse.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
