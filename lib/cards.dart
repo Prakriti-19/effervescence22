@@ -1,18 +1,24 @@
 import 'dart:ui';
-import 'package:effervescence22/ams.dart';
 import 'package:flutter/material.dart';
 import 'package:tcard/tcard.dart';
+import 'events/ams.dart';
+import 'events/arts.dart';
+import 'events/dance.dart';
+import 'events/dramatics.dart';
+import 'events/gaming.dart';
+import 'events/informal.dart';
+import 'events/literature.dart';
+import 'events/music.dart';
 
-import 'list.dart';
 
 class events extends StatefulWidget {
   @override
   _eventsState createState() => _eventsState();
 }
-List<Widget> routes = [
-MainStage(),MainStage(),MainStage(),MainStage(),MainStage(),MainStage(),MainStage(),MainStage(),MainStage(),MainStage(),
-];
-List<String> name=["Main Stage","Dance","Music","Dramatics","AMS","Fine Arts","Main Stage","Informal","Gamming","Literature",];
+// List<Widget> routes = [
+// MainStage(),dance(),music(),dramatics(),ams(),arts(),informal(),gaming(),literature()
+// ];
+List<String> name=["Main Stage","Dance","Music","Dramatics","AMS","Fine Arts","Informal","Gaming","Literature",];
 class _eventsState extends State<events> {
   TCardController _controller = TCardController();
 
@@ -40,16 +46,17 @@ class _eventsState extends State<events> {
           child: Column(
             children: [
               SizedBox(height: 100,),
-              RaisedButton(
-                color:Colors.black38,onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => routes[index]));
-              },
-                child: Text("Events", style: TextStyle(color: Colors.lightGreenAccent),),),
-              SizedBox(height: 20,),
               Text(name[index], style: TextStyle(color: Colors.black,
                   fontSize: 27,
                   fontWeight: FontWeight.bold),),
+              SizedBox(height: 20,),
+              RaisedButton(
+                color:Colors.black54,onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => informal(cat: name[index])));
+              },
+                child: Text("Events", style: TextStyle(color: Colors.lightGreenAccent),),),
+
 
             ],
           ),
@@ -91,12 +98,6 @@ class _eventsState extends State<events> {
                   icon: Icon(Icons.arrow_back,color: Colors.lightGreenAccent,),
 
                 ),
-                // OutlineButton(
-                //   onPressed: () {
-                //     _controller.reset();
-                //   },
-                //   child: Text('Reset'),
-                // ),
                  IconButton(
                   onPressed: () {
                     _controller.forward();

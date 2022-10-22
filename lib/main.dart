@@ -1,5 +1,5 @@
 // @dart=2.9
-import 'package:effervescence22/ams.dart';
+import 'package:effervescence22/eventpage.dart';
 import 'package:effervescence22/cards.dart';
 import 'package:effervescence22/slides.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
@@ -104,7 +104,7 @@ class HomeScreen extends StatelessWidget {
                   RawMaterialButton(
                     onPressed: () {
                       Navigator.push(context,  MaterialPageRoute(
-                          builder: (context) => Slime()));
+                          builder: (context) => Slides()));
                     },
                     shape: CircleBorder(),
                     padding: const EdgeInsets.all(24.0),
@@ -132,15 +132,6 @@ class HomeScreen extends StatelessWidget {
               ),
         ),
       ),
-    );
-  }
-
-  void _showSnackBar(BuildContext context, String message) {
-    Scaffold.of(context).showSnackBar(
-        SnackBar(
-          content: Text(message),
-          duration: const Duration(milliseconds: 1000),
-        )
     );
   }
 }
