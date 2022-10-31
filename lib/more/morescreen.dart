@@ -26,8 +26,11 @@ class _morescreenState extends State<morescreen> {
           SizedBox(height:MediaQuery.of(context).size.height * 0.05,),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 10,20,10),
-            child: RaisedButton(
-              color:Colors.grey[900],
+            child: ElevatedButton(
+              // color:Colors.grey[900],
+              style: ElevatedButton.styleFrom(
+                primary: Colors.grey.shade900
+              ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Row(
@@ -49,8 +52,11 @@ class _morescreenState extends State<morescreen> {
           //SizedBox(height:MediaQuery.of(context).size.height * 0.05,),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 10,20,10),
-            child: RaisedButton(
-              color:Colors.grey[900],
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.grey.shade900
+              ),
+              // color:Colors.grey[900],
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Row(
@@ -71,8 +77,11 @@ class _morescreenState extends State<morescreen> {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 10,20,10),
-            child: RaisedButton(
-              color:Colors.grey[900],
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.grey.shade900
+              ),
+              // color:Colors.grey[900],
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Row(
@@ -93,8 +102,11 @@ class _morescreenState extends State<morescreen> {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 10,20,10),
-            child: RaisedButton(
-              color:Colors.grey[900],
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.grey.shade900
+              ),
+              // color:Colors.grey[900],
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Row(
@@ -115,8 +127,11 @@ class _morescreenState extends State<morescreen> {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 10,20,10),
-            child: RaisedButton(
-              color:Colors.grey[900],
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.grey.shade900
+              ),
+              // color:Colors.grey[900],
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Row(
@@ -137,8 +152,11 @@ class _morescreenState extends State<morescreen> {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(20,10,20,10),
-            child: RaisedButton(
-              color:Colors.grey[900],
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.grey.shade900
+              ),
+              // color:Colors.grey[900],
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Row(
