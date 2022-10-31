@@ -119,10 +119,13 @@ class _detailState extends State<detail> {
                   decoration: new BoxDecoration( color: Colors.deepPurple[300],borderRadius: BorderRadius.all(Radius.circular(18))),
                   child: Padding(
                     padding: const EdgeInsets.all(1.9),
-                    child: RaisedButton(
-                      elevation: 0,
+                    child: ElevatedButton(
+                      // elevation: 0,
                       onPressed: () {},
-                      color: Colors.deepPurple[300],
+                      // color: Colors.deepPurple[300],
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.deepPurple.shade300
+                      ),
                       child: Text(
                         'Register ',
                       style: GoogleFonts.montserrat(
