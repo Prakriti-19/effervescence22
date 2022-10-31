@@ -20,15 +20,15 @@ class _eventpageState extends State<eventpage> {
   @override
 
   Widget build(BuildContext context) {
-    return Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 9),
-                  child: Container(
-                    decoration: new BoxDecoration(color: Colors.grey[900],borderRadius: BorderRadius.all(Radius.circular(18))),
-                    height: 200,
-                    width: 130,
-                    child: RaisedButton(
-                      onPressed: () {Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => detail(profile: widget.profile, ind: widget.ind)));   },
+    return InkWell(
+      onTap: (){Navigator.push(context,
+          MaterialPageRoute(builder: (context) => detail(profile: widget.profile, ind: widget.ind)));   },
+      child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10,vertical: 9),
+                    child: Container(
+                      decoration: new BoxDecoration(color: Colors.grey[900],borderRadius: BorderRadius.all(Radius.circular(18))),
+                      height: 200,
+                      width: 130,
                       child: Stack(
                         children: [
                           Container(
@@ -65,8 +65,8 @@ class _eventpageState extends State<eventpage> {
                                     image: DecorationImage(image: AssetImage('images/logo.png'),fit: BoxFit.fill)),)),
                         ],
                       ),
-                    ),
+                  ),
                 ),
-              );
+    );
   }
 }

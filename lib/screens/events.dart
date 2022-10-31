@@ -26,12 +26,38 @@ class _eventsState extends State<events> {
     List<String> date2 = [];
     List<String> time2 = [];
     List<String> venue2 = [];
+    List<String> name3 = [];
+    List<String> desc3= [];
+    List<String> date3= [];
+    List<String> time3= [];
+    List<String> venue3 = [];
+    List<String> name4 = [];
+    List<String> desc4 = [];
+    List<String> date4 = [];
+    List<String> time4 = [];
+    List<String> venue4 = [];
+    List<String> name5 = [];
+    List<String> desc5 = [];
+    List<String> date5 = [];
+    List<String> time5 = [];
+    List<String> venue5 = [];
+    List<String> name6 = [];
+    List<String> desc6 = [];
+    List<String> date6 = [];
+    List<String> time6 = [];
+    List<String> venue6 = [];
+    List<String> name7 = [];
+    List<String> desc7 = [];
+    List<String> date7 = [];
+    List<String> time7 = [];
+    List<String> venue7 = [];
+    List<String> name8 = [];
+    List<String> desc8 = [];
+    List<String> date8 = [];
+    List<String> time8 = [];
+    List<String> venue8 = [];
     return Scaffold(
       backgroundColor: Colors.black,
-      //   appBar: AppBar(
-      //     title: Text("Events",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),
-      //     backgroundColor: Colors.transparent,
-      //   ),
         body: SingleChildScrollView(
           child: Column(
               children: [
@@ -130,11 +156,11 @@ class _eventsState extends State<events> {
                             }
                             final documentSnapshotList = snapshot.data!.docs;
                             documentSnapshotList.forEach((element) {
-                              name.add(element['name']);
-                              desc.add(element['details']);
-                              date.add(element['date']);
-                              time.add(element['time']);
-                              venue.add(element['venue']);
+                              name3.add(element['name']);
+                              desc3.add(element['details']);
+                              date3.add(element['date']);
+                              time3.add(element['time']);
+                              venue3.add(element['venue']);
                             });
                             c=documentSnapshotList.length;
                             final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i],));
@@ -162,11 +188,11 @@ class _eventsState extends State<events> {
                         }
                         final documentSnapshotList = snapshot.data!.docs;
                         documentSnapshotList.forEach((element) {
-                          name.add(element['name']);
-                          desc.add(element['details']);
-                          date.add(element['date']);
-                          time.add(element['time']);
-                          venue.add(element['venue']);
+                          name4.add(element['name']);
+                          desc4.add(element['details']);
+                          date4.add(element['date']);
+                          time4.add(element['time']);
+                          venue4.add(element['venue']);
                         });
                         c=documentSnapshotList.length;
                         final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i],));
@@ -194,11 +220,11 @@ class _eventsState extends State<events> {
                         }
                         final documentSnapshotList = snapshot.data!.docs;
                         documentSnapshotList.forEach((element) {
-                          name.add(element['name']);
-                          desc.add(element['details']);
-                          date.add(element['date']);
-                          time.add(element['time']);
-                          venue.add(element['venue']);
+                          name5.add(element['name']);
+                          desc5.add(element['details']);
+                          date5.add(element['date']);
+                          time5.add(element['time']);
+                          venue5.add(element['venue']);
                         });
                         c=documentSnapshotList.length;
                         final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i],));
@@ -227,11 +253,11 @@ class _eventsState extends State<events> {
                         }
                         final documentSnapshotList = snapshot.data!.docs;
                         documentSnapshotList.forEach((element) {
-                          name.add(element['name']);
-                          desc.add(element['details']);
-                          date.add(element['date']);
-                          time.add(element['time']);
-                          venue.add(element['venue']);
+                          name6.add(element['name']);
+                          desc6.add(element['details']);
+                          date6.add(element['date']);
+                          time6.add(element['time']);
+                          venue6.add(element['venue']);
                         });
                         c=documentSnapshotList.length;
                         final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i],));
@@ -260,11 +286,11 @@ class _eventsState extends State<events> {
                         }
                         final documentSnapshotList = snapshot.data!.docs;
                         documentSnapshotList.forEach((element) {
-                          name.add(element['name']);
-                          desc.add(element['details']);
-                          date.add(element['date']);
-                          time.add(element['time']);
-                          venue.add(element['venue']);
+                          name7.add(element['name']);
+                          desc7.add(element['details']);
+                          date7.add(element['date']);
+                          time7.add(element['time']);
+                          venue7.add(element['venue']);
                         });
                         c=documentSnapshotList.length;
                         final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i],));
@@ -293,11 +319,11 @@ class _eventsState extends State<events> {
                         }
                         final documentSnapshotList = snapshot.data!.docs;
                         documentSnapshotList.forEach((element) {
-                          name.add(element['name']);
-                          desc.add(element['details']);
-                          date.add(element['date']);
-                          time.add(element['time']);
-                          venue.add(element['venue']);
+                          name8.add(element['name']);
+                          desc8.add(element['details']);
+                          date8.add(element['date']);
+                          time8.add(element['time']);
+                          venue8.add(element['venue']);
                         });
                         c=documentSnapshotList.length;
                         final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i],));

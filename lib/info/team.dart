@@ -35,57 +35,78 @@ class _teamState extends State<team> {
             return ListView.builder(
               itemCount: c,
               itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 4),
-                  child: Container(
-                      decoration: new BoxDecoration(color: Colors.grey[900],borderRadius: BorderRadius.all(Radius.circular(18))),
-                      child: Row(
-                        children: [
-                          SizedBox(width:MediaQuery.of(context).size.width * 0.05,),
-                          CircleAvatar(
-                            radius: 24,
-                            backgroundImage: AssetImage('images/logo.png'),
-                          ),
-                          SizedBox(width:MediaQuery.of(context).size.width * 0.035,),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(name[index], style: GoogleFonts.montserrat(
-                                textStyle: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w400),),),
-                              Row(
-                                children: [
-                                  IconButton(
-                                    color: Colors.red,
-                                    onPressed:() async {
-                                      if (await canLaunch(url)) {
-                                        await launch(
-                                          url,
-                                          universalLinksOnly: true,
-                                        );
-                                      } else {
-                                        throw 'There was a problem to open the url: $url';
-                                      }}, icon:ImageIcon(
-                                      AssetImage("images/insta.png"),color: Colors.white),
-                                  ),
-                                  IconButton(                                color: Colors.red,
-                                    onPressed:() async {
-                                      if (await canLaunch(url)) {
-                                        await launch(
-                                          url,
-                                          universalLinksOnly: true,
-                                        );
-                                      } else {
-                                        throw 'There was a problem to open the url: $url';
-                                      }}, icon:ImageIcon(
-                                        AssetImage("images/fb.png"),color: Colors.white),
-                                  ),
-
-                                ],
-                              ),
-                            ],
+                return InkWell(
+                  onTap: (){
+                    showDialog(
+                      context: context,
+                      builder: (ctx) => AlertDialog(
+                        title: Text(name[index]),
+                       // content: Text("You have raised a Alert Dialog Box"),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(ctx).pop();
+                            },
+                            child: Container(
+                              child: Icon(Icons.close,color: Colors.red,),
+                            ),
                           ),
                         ],
-                      )),
+    ),);
+                  },
+
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 4),
+                    child: Container(
+                        decoration: new BoxDecoration(color: Colors.grey[900],borderRadius: BorderRadius.all(Radius.circular(18))),
+                        child: Row(
+                          children: [
+                            SizedBox(width:MediaQuery.of(context).size.width * 0.05,),
+                            CircleAvatar(
+                              radius: 24,
+                              backgroundImage: AssetImage('images/logo.png'),
+                            ),
+                            SizedBox(width:MediaQuery.of(context).size.width * 0.035,),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(name[index], style: GoogleFonts.montserrat(
+                                  textStyle: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w400),),),
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      color: Colors.red,
+                                      onPressed:() async {
+                                        if (await canLaunch(url)) {
+                                          await launch(
+                                            url,
+                                            universalLinksOnly: true,
+                                          );
+                                        } else {
+                                          throw 'There was a problem to open the url: $url';
+                                        }}, icon:ImageIcon(
+                                        AssetImage("images/insta.png"),color: Colors.white),
+                                    ),
+                                    IconButton(                                color: Colors.red,
+                                      onPressed:() async {
+                                        if (await canLaunch(url)) {
+                                          await launch(
+                                            url,
+                                            universalLinksOnly: true,
+                                          );
+                                        } else {
+                                          throw 'There was a problem to open the url: $url';
+                                        }}, icon:ImageIcon(
+                                          AssetImage("images/fb.png"),color: Colors.white),
+                                    ),
+
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
+                        )),
+                  ),
                 );},
             );}
       ),
