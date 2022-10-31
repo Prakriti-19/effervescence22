@@ -26,7 +26,7 @@ class _eventpageState extends State<eventpage> {
                     decoration: new BoxDecoration(color: Colors.grey[900],borderRadius: BorderRadius.all(Radius.circular(18))),
                     height: 200,
                     width: 130,
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       onPressed: () {Navigator.push(context,
                           MaterialPageRoute(builder: (context) => detail(profile: widget.profile, ind: widget.ind)));   },
                       child: Stack(
