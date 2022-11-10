@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'more/morescreen.dart';
-import 'more/shop.dart';
+import 'screens/shop.dart';
 import 'screens/Home.dart';
 import 'screens/events.dart';
 import 'screens/schedule.dart';

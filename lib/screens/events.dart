@@ -4,17 +4,30 @@ import 'package:effervescence22/classes/eventprofile.dart';
 import 'package:effervescence22/screens/eventpage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 
 class events extends StatefulWidget {
 
   @override
   _eventsState createState() => _eventsState();
 }
+class CarouselModel{
+  String image;
+  CarouselModel(this.image);
+
+}
+List<CarouselModel> carousels= carouselData.map((item)=>CarouselModel(item['image']??'')).toList();
+var carouselData=[
+  {"image": "images/bg.jpeg"},
+  {"image": "images/bg.jpeg"},
+  {"image": "images/bg.jpeg"}
+];
 
 class _eventsState extends State<events> {
   @override
    Widget build(BuildContext context) {
     int c = 0;
+   int _current=0;
     //  List<String> url = [];
     List<String> name = [];
     List<String> desc = [];
@@ -56,6 +69,7 @@ class _eventsState extends State<events> {
     List<String> date8 = [];
     List<String> time8 = [];
     List<String> venue8 = [];
+   
     return Scaffold(
       backgroundColor: Colors.black,
         body: SingleChildScrollView(
@@ -63,10 +77,72 @@ class _eventsState extends State<events> {
               children: [
                 Stack(
                   children: [
-                    Container(
-                        width:MediaQuery.of(context).size.width,
-                        height:MediaQuery.of(context).size.height * 0.56,
-                        child: Image(image: AssetImage('images/event.png'),fit: BoxFit.fill,)),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 6),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            height: 290,
+                            child: Swiper(
+                              viewportFraction: 1,
+                              onIndexChanged: (index) {
+                                setState(() {
+                                  _current = index;
+                                });
+                              },
+                              autoplay: true,
+                              layout: SwiperLayout.DEFAULT,
+                              itemCount: carousels.length,
+                              itemBuilder: (BuildContext context, index) {
+                                return Container(
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 10),
+                                    child: Container(
+                                      //padding: EdgeInsets.fromLTRB(20, 130, 6, 6),
+                                      child: Container(
+                                        padding: EdgeInsets.fromLTRB(0, 130, 140, 6),
+                                        decoration: BoxDecoration(
+                                          //color: Colors.pink,
+                                          shape: BoxShape.rectangle,
+                                          borderRadius: BorderRadius.circular(10.0),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.fromLTRB(0, 5, 90, 10),
+                                          child: InkWell(
+                                              child: Center(
+                                                child: Text(
+                                                  'Check out now',
+                                                  style: TextStyle(
+                                                    fontFamily: 'Mochiy Pop P One',
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 10,
+                                                  ),
+                                                ),
+                                              ),
+                                              onTap: () {
+                                              }),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                      borderRadius: BorderRadius.circular(25.0),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                            carousels[index].image,
+                                          ),
+                                          fit: BoxFit.cover)),
+                                );
+                              },
+                            )),
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(18, 26, 0,0),
                       child: Text('EVENTS',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),
@@ -75,7 +151,7 @@ class _eventsState extends State<events> {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                  child: Text('Literary',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20),),
+                  child: Center(child: Text('Literary',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20),)),
                 ),
                 Container(
                     height: 200,
@@ -94,6 +170,7 @@ class _eventsState extends State<events> {
                               date.add(element['date']);
                               time.add(element['time']);
                               venue.add(element['venue']);
+
                             });
                             c=documentSnapshotList.length;
                             final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i],));
@@ -128,6 +205,7 @@ class _eventsState extends State<events> {
                               date2.add(element['date']);
                               time2.add(element['time']);
                               venue2.add(element['venue']);
+
                             });
                             c=documentSnapshotList.length;
                             final profile = List<Profile>.generate(c, (i) => Profile(name: name2[i],time:time2[i], details: desc2[i], venue: venue2[i], date: date2[i],));
@@ -161,9 +239,10 @@ class _eventsState extends State<events> {
                               date3.add(element['date']);
                               time3.add(element['time']);
                               venue3.add(element['venue']);
+
                             });
                             c=documentSnapshotList.length;
-                            final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i],));
+                            final profile = List<Profile>.generate(c, (i) => Profile(name: name3[i],time:time3[i], details: desc3[i], venue: venue3[i], date: date3[i],));
                             return ListView.builder(
                               scrollDirection: Axis.horizontal,
                               itemCount: c,
@@ -193,9 +272,10 @@ class _eventsState extends State<events> {
                           date4.add(element['date']);
                           time4.add(element['time']);
                           venue4.add(element['venue']);
+
                         });
                         c=documentSnapshotList.length;
-                        final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i],));
+                        final profile = List<Profile>.generate(c, (i) => Profile(name: name4[i],time:time4[i], details: desc4[i], venue: venue4[i], date: date4[i],));
                           return ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: c,
@@ -225,9 +305,10 @@ class _eventsState extends State<events> {
                           date5.add(element['date']);
                           time5.add(element['time']);
                           venue5.add(element['venue']);
+
                         });
                         c=documentSnapshotList.length;
-                        final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i],));
+                        final profile = List<Profile>.generate(c, (i) => Profile(name: name5[i],time:time5[i], details: desc5[i], venue: venue5[i], date: date5[i],));
                         return ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: c,
@@ -258,9 +339,10 @@ class _eventsState extends State<events> {
                           date6.add(element['date']);
                           time6.add(element['time']);
                           venue6.add(element['venue']);
+
                         });
                         c=documentSnapshotList.length;
-                        final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i],));
+                        final profile = List<Profile>.generate(c, (i) => Profile(name: name6[i],time:time6[i], details: desc6[i], venue: venue6[i], date: date6[i],));
                         return ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: c,
@@ -291,9 +373,10 @@ class _eventsState extends State<events> {
                           date7.add(element['date']);
                           time7.add(element['time']);
                           venue7.add(element['venue']);
+
                         });
                         c=documentSnapshotList.length;
-                        final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i],));
+                        final profile = List<Profile>.generate(c, (i) => Profile(name: name7[i],time:time7[i], details: desc7[i], venue: venue7[i], date: date7[i],));
                         return ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: c,
@@ -324,9 +407,10 @@ class _eventsState extends State<events> {
                           date8.add(element['date']);
                           time8.add(element['time']);
                           venue8.add(element['venue']);
+
                         });
                         c=documentSnapshotList.length;
-                        final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i],));
+                        final profile = List<Profile>.generate(c, (i) => Profile(name: name8[i],time:time8[i], details: desc8[i], venue: venue8[i], date: date8[i],));
                         return ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: c,

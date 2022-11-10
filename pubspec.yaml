@@ -88,6 +88,7 @@ flutter:
      - images/about.png
      - images/insta.png
      - images/fb.png
+     - images/bg.jpeg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

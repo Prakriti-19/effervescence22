@@ -1,9 +1,9 @@
 import 'dart:ui';
+import 'package:effervescence22/more/team.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../info/developrs.dart';
-import '../info/team.dart';
+import 'developrs.dart';
 import 'about us.dart';
 import 'faq.dart';
 import 'sponsors.dart';

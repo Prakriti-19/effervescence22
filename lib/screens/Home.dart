@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Homescreen extends StatelessWidget {
 
+class Homescreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,8 @@ class Homescreen extends StatelessWidget {
     var p_day=(dt.day);
     var p_min=(dt.minute);
     var p_sec=(dt.second);
-
+    int _current = 0;
+    List<String> a=['images/Effe_logo.png','images/Effe_logo.png','images/Effe_logo.png'];
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -56,7 +57,7 @@ class Homescreen extends StatelessWidget {
                     print('THE WAIT IS OVER');
                   },
                   builder: (BuildContext context, Duration value, Widget? child) {
-                    var days=value.inDays+30;
+                    var days=value.inDays;
                     var min= (value.inMinutes-Duration(days: 31-p_day+8,hours:24-p_hour,seconds: 60-p_sec).inMinutes)%60;
                     var hours= value.inHours%24-1;
                     if (hours==-1)
@@ -71,7 +72,7 @@ class Homescreen extends StatelessWidget {
                                 'IT BEGIN\'S IN',
                                 style: GoogleFonts.oxygen(
                                   textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,
-                                      fontSize: 23)),
+                                      fontSize: 21)),
                                 ),
                             ),
                             Center(
@@ -79,29 +80,43 @@ class Homescreen extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                   style: GoogleFonts.roboto(
                                       textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.w200,
-                                          fontSize: 78)
+                                          fontSize: 70)
                     )
                               )
                             ),
                             Text('DAYS || HOURS || MINUTES',
                                 style: GoogleFonts.roboto(
                                     textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.w100,
-                                        fontSize: 26)
+                                        fontSize: 24)
                                 )
                             )
                           ],
                         ));
                   }
               ),
-        //       SizedBox(height: MediaQuery.of(context).size.width * 0.3,),
-        // Text('Featured',
-        //   textAlign: TextAlign.left,
-        //   style: GoogleFonts.montserrat(
-        //       textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,
-        //           fontSize: 20)
-        //   ),
-        //
-        // ),
+              SizedBox(height: MediaQuery.of(context).size.width * 0.17,),
+        Text('Featured',
+          textAlign: TextAlign.left,
+          style: GoogleFonts.montserrat(
+              textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,
+                  fontSize: 20)
+          ),
+
+        ),
+
+            Container(
+              height: 150,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 3,
+                      itemBuilder: (context, index) {
+                        return  Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(width:200,child: Image.asset(a[index])),
+                        );
+                  }),
+
+            ),
             ],
           ),
         ),
