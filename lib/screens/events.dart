@@ -5,6 +5,7 @@ import 'package:effervescence22/screens/eventpage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class events extends StatefulWidget {
 
@@ -72,13 +73,18 @@ class _eventsState extends State<events> {
    
     return Scaffold(
       backgroundColor: Colors.black,
+      appBar: AppBar(
+        title: Text("Events", style: GoogleFonts.montserrat(
+          textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),),
+        backgroundColor: Colors.transparent,
+      ),
         body: SingleChildScrollView(
           child: Column(
               children: [
                 Stack(
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 6),
+                      padding: EdgeInsets.symmetric(horizontal: 6,vertical: 10),
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         child: Container(
@@ -110,23 +116,6 @@ class _eventsState extends State<events> {
                                           shape: BoxShape.rectangle,
                                           borderRadius: BorderRadius.circular(10.0),
                                         ),
-                                        child: Padding(
-                                          padding: EdgeInsets.fromLTRB(0, 5, 90, 10),
-                                          child: InkWell(
-                                              child: Center(
-                                                child: Text(
-                                                  'Check out now',
-                                                  style: TextStyle(
-                                                    fontFamily: 'Mochiy Pop P One',
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 10,
-                                                  ),
-                                                ),
-                                              ),
-                                              onTap: () {
-                                              }),
-                                        ),
                                       ),
                                     ),
                                   ),
@@ -137,16 +126,16 @@ class _eventsState extends State<events> {
                                           image: AssetImage(
                                             carousels[index].image,
                                           ),
-                                          fit: BoxFit.cover)),
+                                          fit: BoxFit.fill)),
                                 );
                               },
                             )),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(18, 26, 0,0),
-                      child: Text('EVENTS',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),
-                    )
+                    // Padding(
+                    //   padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
+                    //   child: Text('EVENTS',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),
+                    // )
                   ],
                 ),
                 Padding(
