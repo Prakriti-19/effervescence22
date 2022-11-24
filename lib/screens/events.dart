@@ -1,10 +1,10 @@
 import 'dart:ui';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:effervescence22/classes/eventprofile.dart';
+import 'package:effervescence22/screens/eventnew.dart';
 import 'package:effervescence22/screens/eventpage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class events extends StatefulWidget {
@@ -12,17 +12,7 @@ class events extends StatefulWidget {
   @override
   _eventsState createState() => _eventsState();
 }
-class CarouselModel{
-  String image;
-  CarouselModel(this.image);
 
-}
-List<CarouselModel> carousels= carouselData.map((item)=>CarouselModel(item['image']??'')).toList();
-var carouselData=[
-  {"image": "images/bg.jpeg"},
-  {"image": "images/bg.jpeg"},
-  {"image": "images/bg.jpeg"}
-];
 
 class _eventsState extends State<events> {
   @override
@@ -81,69 +71,13 @@ class _eventsState extends State<events> {
         body: SingleChildScrollView(
           child: Column(
               children: [
-                Stack(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 6,vertical: 10),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            height: 290,
-                            child: Swiper(
-                              viewportFraction: 1,
-                              onIndexChanged: (index) {
-                                setState(() {
-                                  _current = index;
-                                });
-                              },
-                              autoplay: true,
-                              layout: SwiperLayout.DEFAULT,
-                              itemCount: carousels.length,
-                              itemBuilder: (BuildContext context, index) {
-                                return Container(
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 10),
-                                    child: Container(
-                                      //padding: EdgeInsets.fromLTRB(20, 130, 6, 6),
-                                      child: Container(
-                                        padding: EdgeInsets.fromLTRB(0, 130, 140, 6),
-                                        decoration: BoxDecoration(
-                                          //color: Colors.pink,
-                                          shape: BoxShape.rectangle,
-                                          borderRadius: BorderRadius.circular(10.0),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.rectangle,
-                                      borderRadius: BorderRadius.circular(25.0),
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                            carousels[index].image,
-                                          ),
-                                          fit: BoxFit.fill)),
-                                );
-                              },
-                            )),
-                      ),
-                    ),
-                    // Padding(
-                    //   padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                    //   child: Text('EVENTS',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),
-                    // )
-                  ],
-                ),
+               Pro(),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                  child: Center(child: Text('Literary',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20),)),
+                  child: Align(alignment:Alignment.topLeft,child: Text('Literary',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
                 ),
                 Container(
-                    height: 200,
+                    height: 165,
                       child: StreamBuilder<QuerySnapshot>(
                           stream: FirebaseFirestore.instance
                               .collection('Literature')
@@ -174,11 +108,11 @@ class _eventsState extends State<events> {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                  child: Text('AMS',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20),),
+                  child: Align(alignment:Alignment.topLeft,child: Text('AMS',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
                 ),
 
                 Container(
-                  height: 200,
+                  height: 165,
                       child: StreamBuilder<QuerySnapshot>(
                           stream: FirebaseFirestore.instance
                               .collection('AMS')
@@ -209,10 +143,10 @@ class _eventsState extends State<events> {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                  child: Text('Arts',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20),),
+                  child: Align(alignment:Alignment.topLeft,child: Text('Fine Arts',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
                 ),
                 Container(
-                  height: 170,
+                  height: 165,
                       child: StreamBuilder<QuerySnapshot>(
                           stream: FirebaseFirestore.instance
                               .collection('Fine Arts')
@@ -242,10 +176,10 @@ class _eventsState extends State<events> {
                     ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                  child: Text('Dance',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20),),
+                  child: Align(alignment:Alignment.topLeft,child: Text('Dance',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
                 ),
                 Container(
-                  height: 170,
+                  height: 165,
                   child: StreamBuilder<QuerySnapshot>(
                       stream: FirebaseFirestore.instance
                           .collection('Dance')
@@ -275,10 +209,10 @@ class _eventsState extends State<events> {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                  child: Text('Dramatics',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20),),
+                  child: Align(alignment:Alignment.topLeft,child: Text('Dramatics',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
                 ),
                 Container(
-                  height: 200,
+                  height: 165,
                   child: StreamBuilder<QuerySnapshot>(
                       stream: FirebaseFirestore.instance
                           .collection('Dramatics')
@@ -309,10 +243,10 @@ class _eventsState extends State<events> {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                  child: Text('Music',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20),),
+                  child: Align(alignment:Alignment.topLeft,child: Text('Music',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
                 ),
                 Container(
-                  height: 200,
+                  height: 165,
                   child: StreamBuilder<QuerySnapshot>(
                       stream: FirebaseFirestore.instance
                           .collection('Music')
@@ -343,10 +277,10 @@ class _eventsState extends State<events> {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                  child: Text('Gaming',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20),),
+                  child: Align(alignment:Alignment.topLeft,child: Text('Gaming',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
                 ),
                 Container(
-                  height: 200,
+                  height: 165,
                   child: StreamBuilder<QuerySnapshot>(
                       stream: FirebaseFirestore.instance
                           .collection('Gaming')
@@ -377,10 +311,10 @@ class _eventsState extends State<events> {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                  child: Text('Informal',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20),),
+                  child: Align(alignment:Alignment.topLeft,child: Text('Informal',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
                 ),
                 Container(
-                  height: 200,
+                  height: 165,
                   child: StreamBuilder<QuerySnapshot>(
                       stream: FirebaseFirestore.instance
                           .collection('Informal')

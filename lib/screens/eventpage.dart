@@ -19,46 +19,48 @@ class _eventpageState extends State<eventpage> {
 
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: (){Navigator.push(context,
-        MaterialPageRoute(builder: (context) => detail(profile: widget.profile, ind: widget.ind)));   },
-    child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 9),
-                  child: Container(
-                     decoration: new BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(18))),
-                    height: 160,
-                    width: 130,
-                    child: Stack(
-                      children: [
-                        Container(
-                            decoration: new BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(18))),
-                            width:MediaQuery.of(context).size.width * 0.36,
-                            height:MediaQuery.of(context).size.height * 0.3,
-                            child: Image(image: AssetImage('images/bg.jpeg'),fit: BoxFit.cover,)),
-                        Column(
-                          children: [
-                            SizedBox(
-                              height:MediaQuery.of(context).size.height * 0.14,
-                            ),
-                            Text(
-                              '${widget.profile.name} ',
-                              textAlign: TextAlign.end,
-                              style: GoogleFonts.montserrat(
-                                textStyle:TextStyle(fontWeight: FontWeight.w500, fontSize: 13,color: Colors.white),),
-                            ),
-                            SizedBox(
-                              height: 3,
-                            ),
-                            Text(
-                              '${widget.profile.date} ',
-                              style: GoogleFonts.montserrat(
-                                textStyle:TextStyle(fontWeight: FontWeight.w500, fontSize: 13,color: Colors.white),),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    ),
-                ),
-              );
+          onTap: (){Navigator.push(context,
+          MaterialPageRoute(builder: (context) => detail(profile: widget.profile, ind: widget.ind)));   },
+      child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 7,vertical: 9),
+                    child: Container(
+                       decoration: new BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(18))),
+                      height: 140,
+                      width: 130,
+                      child: Stack(
+                        children: [
+                          Container(
+                              decoration: new BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(18)),image: DecorationImage(
+          image: AssetImage('images/bg.jpeg'), fit: BoxFit.cover),
+      ),
+                              width:MediaQuery.of(context).size.width * 0.36,
+                              height:MediaQuery.of(context).size.height * 0.3,
+                              ),
+                          Column(
+                            children: [
+                              SizedBox(
+                                height:MediaQuery.of(context).size.height * 0.14,
+                              ),
+                              Text(
+                                '${widget.profile.name} ',
+                                textAlign: TextAlign.end,
+                                style: GoogleFonts.montserrat(
+                                  textStyle:TextStyle(fontWeight: FontWeight.w500, fontSize: 13,color: Colors.white),),
+                              ),
+                              SizedBox(
+                                height: 3,
+                              ),
+                              Text(
+                                '${widget.profile.date} ',
+                                style: GoogleFonts.montserrat(
+                                  textStyle:TextStyle(fontWeight: FontWeight.w500, fontSize: 13,color: Colors.white),),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      ),
+                  ),
+    );
   }
 }
