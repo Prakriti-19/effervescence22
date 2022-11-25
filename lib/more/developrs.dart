@@ -45,11 +45,26 @@ class _developersState extends State<developers> {
                   showDialog(
                     context: context,
                     builder: (ctx) =>AlertDialog(
-                      backgroundColor: Colors.grey[900],
-                      title: Text(name[index],style: TextStyle(color: Colors.white),),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                      backgroundColor: Colors.black,
                       actions: <Widget>[
-                        Container( child: Image( image: AssetImage('images/logo.png'),)),
-                        Text(name[index],style: TextStyle(color: Colors.white),),
+                        Container(
+                          decoration: new BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage('images/bg.jpeg'),fit: BoxFit.cover,
+                            ),
+                            borderRadius:
+                            new BorderRadius.all(new Radius.circular(20.0)),
+                          ),
+                          height: MediaQuery.of(context).size.height*0.45,
+                          //  child: Image( image: AssetImage('images/bg.jpeg'),fit: BoxFit.cover,)
+                        ),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: Text(name[index],style:  GoogleFonts.montserrat(
+                              textStyle: TextStyle(color: Colors.white, fontSize: 24)),),
+                        ),
                         TextButton(
                           onPressed: () {
                             Navigator.of(ctx).pop();
@@ -64,7 +79,11 @@ class _developersState extends State<developers> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 4),
                     child: Container(
-                        decoration: new BoxDecoration(color: Colors.grey[900],borderRadius: BorderRadius.all(Radius.circular(18))),
+                        decoration: new BoxDecoration( gradient: LinearGradient(
+                          colors: [Color.fromRGBO(119, 0, 138, 1), Colors.black],
+                          begin: Alignment.centerRight,
+                          end: Alignment.centerLeft,
+                        ),borderRadius: BorderRadius.all(Radius.circular(18))),
                         child: Row(
                           children: [
                             SizedBox(width:MediaQuery.of(context).size.width * 0.05,),

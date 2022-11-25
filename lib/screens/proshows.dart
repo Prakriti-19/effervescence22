@@ -6,11 +6,12 @@ class Pro extends StatefulWidget {
   @override
   _ProState createState() => _ProState();
 }
-List<String> image = ["images/bg.jpeg", "images/bg.jpeg", "images/bg.jpeg"];
+List<String> image = ["images/ua.jpeg",
+  "images/ash.jpeg", "images/bg.jpeg"];
 class _ProState extends State<Pro> {
-  PageController pageController=PageController(viewportFraction: 0.91);
+  PageController pageController=PageController(viewportFraction: 0.85);
   var _cur = 0.0;
-  double _scaleFactor=0.8;
+  double _scaleFactor=0.7;
   double height=220;
   @override
   void initState(){

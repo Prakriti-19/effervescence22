@@ -22,7 +22,11 @@ class _merchpageState extends State<merchpage> {
 
       padding: EdgeInsets.symmetric(horizontal: 5,vertical: 8),
       child: Container(
-        decoration: new BoxDecoration(color: Colors.grey[900],borderRadius: BorderRadius.all(Radius.circular(20))),
+        decoration: new BoxDecoration(  gradient: LinearGradient(
+          colors: [Color.fromRGBO(119, 0, 138, 1), Colors.black],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),borderRadius: BorderRadius.all(Radius.circular(20))),
         child: InkWell(
           onTap: (){Navigator.push(context,
         MaterialPageRoute(builder: (context) => merchdetail(profile: widget.profile, ind: widget.ind,)));   },
@@ -30,9 +34,19 @@ class _merchpageState extends State<merchpage> {
               padding: EdgeInsets.symmetric(horizontal: 5,vertical: 8),
               child: Stack(children: <Widget>[
                 Container(
-                  decoration: new BoxDecoration(color: Colors.grey[900],borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Material(
-                      color: Colors.grey[900],
+                  decoration: new BoxDecoration(  gradient: LinearGradient(
+                    colors: [Color.fromRGBO(119, 0, 138, 1), Colors.black],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),borderRadius: BorderRadius.all(Radius.circular(20))),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Color.fromRGBO(119, 0, 138, 1), Colors.black],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                    ),
                       child:Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment:CrossAxisAlignment.start ,

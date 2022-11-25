@@ -58,7 +58,11 @@ class _sponsorState extends State<sponsor> {
                         padding: const EdgeInsets.fromLTRB(7,0,7,0),
                         child: Container(
                           height: MediaQuery.of(context).size.height/4,
-                            decoration: new BoxDecoration(color: Colors.grey[900],borderRadius: BorderRadius.all(Radius.circular(15))),
+                            decoration: new BoxDecoration( gradient: LinearGradient(
+                              colors: [Color.fromRGBO(119, 0, 138, 1), Colors.black],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                            ),borderRadius: BorderRadius.all(Radius.circular(15))),
                             child: Column(
                               children: [
                                 SizedBox(height:MediaQuery.of(context).size.height * 0.015,),

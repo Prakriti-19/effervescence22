@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class merchdetail extends StatefulWidget {
-
   final Merchdetails profile;
   int ind;
   merchdetail({required this.profile, required this.ind});
@@ -16,124 +15,138 @@ class _merchdetailState extends State<merchdetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(leading:IconButton(onPressed: () { Navigator.pop(context); }, icon: Icon(Icons.arrow_back_ios),),backgroundColor: Colors.transparent,
-      ),
       backgroundColor: Colors.black,
-      body:
-          Row(
+      appBar: AppBar(
+        title: Text("Shop", style: GoogleFonts.montserrat(
+          textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),),
+        backgroundColor: Colors.black,
+      ),
+      body: Column(
             children: [
+              // SizedBox(
+              //   height: MediaQuery.of(context).size.height * 0.06,
+              // ),
+              Container(
+                  width: MediaQuery.of(context).size.width*0.86,
+                  height: MediaQuery.of(context).size.height * 0.42,
+                  child: Image(
+                    image: AssetImage('images/merch.png'),
+                    fit: BoxFit.fill,
+                  )),
               SizedBox(
-                height: MediaQuery.of(context).size.width * 0.02,
+                height: MediaQuery.of(context).size.width * 0.06,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Container(
+                width: MediaQuery.of(context).size.width * 0.95,
+                child: Text(
+                  '${widget.profile.name} ',
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.white),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width * 0.017,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.95,
+                child: Text(
+                  '${widget.profile.type} ',
+                  style: GoogleFonts.montserrat(
+                      textStyle: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w300,
+                          fontSize: 16)),
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width * 0.029,
+              ),
+              Row(
+               // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                      width: MediaQuery.of(context).size.width*0.92,
-                      height: MediaQuery.of(context).size.height * 0.3,
+                      width: MediaQuery.of(context).size.width * 0.042,
                       child: Image(
-                        image: AssetImage('images/event.png'),
+                        image: AssetImage('images/rupee.png'),
                         fit: BoxFit.fill,
                       )),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.width * 0.02,
-                  ),
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.85,
                     child: Text(
-                      '${widget.profile.name} ',
+                      '${widget.profile.cost}.00 ',
                       style: GoogleFonts.montserrat(
                         textStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 26,
+                            fontWeight: FontWeight.w300,
+                            fontSize: 27,
                             color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.width * 0.015,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.85,
-                    child: Text(
-                      '${widget.profile.type} ',
-                      style: GoogleFonts.montserrat(
-                        textStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 22,
-                            color: Colors.white),
-                      ),
-                    ),
-                  ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.037,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.5,
-                        child: Text(
-                          '${widget.profile.cost} ',
-                          style: GoogleFonts.montserrat(
-                            textStyle: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontSize: 16,
-                                color: Colors.white),
-                          ),
-                        ),
-                      ),
-
-                  SizedBox(
-                    height: MediaQuery.of(context).size.width * 0.025,
-                  ),
-                  Text(
-                    'Product Description', style: GoogleFonts.montserrat(
-                      textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,
-                          fontSize: 19)
-                  ),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.width * 0.025,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width *0.85,
-                    child: Text(
-                      '${widget.profile.desc} ', style: GoogleFonts.montserrat(
-                        textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,
-                            fontSize: 16)
-                    ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.width * 0.035,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: MediaQuery.of(context).size.width * 0.33),
-                    child: Container(
-                      decoration: new BoxDecoration( color: Colors.red,borderRadius: BorderRadius.all(Radius.circular(15))),
-                      child: Padding(
-                        padding: const EdgeInsets.all(2.1),
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            primary: Colors.red, // background
-                            onPrimary: Colors.red, // foreground
-                          ),
-                          child: Text(
-                              'Buy Now ',
-                              style: GoogleFonts.montserrat(
-                                  textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,
-                                      fontSize: 19)
-                              )
-                          ),
-                        ),
                       ),
                     ),
                   ),
                 ],
               ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width * 0.035,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.1),
+                child: Container(
+                  decoration: new BoxDecoration(
+                      color: Color.fromRGBO(119, 0, 138, 1),
+                      borderRadius:
+                      BorderRadius.all(Radius.circular(10))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(1),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          primary: Color.fromRGBO(119, 0, 138, 1),),
+                      onPressed: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal:20),
+                        child: Text('Buy Now',
+                            style: GoogleFonts.montserrat(
+                                textStyle: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 19))),
+                      ),
+                    ),
+                  ),
+                  )),
+              SizedBox(
+                height: MediaQuery.of(context).size.width * 0.035,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.95,
+                child: Text(
+                  'Product Description',
+                  style: GoogleFonts.montserrat(
+                      textStyle:
+                      TextStyle(color: Colors.white, fontSize: 20)),
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width * 0.029,
+
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.95,
+                child: Text(
+                  '${widget.profile.desc} ',
+                  style: GoogleFonts.montserrat(
+                      textStyle:
+                          TextStyle(color: Colors.white, fontSize: 14,  fontWeight: FontWeight.w300,)),
+                ),
+              ),
+
+
+
             ],
-          ),
-            );
+      ),
+    );
   }
 }

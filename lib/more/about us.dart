@@ -21,10 +21,20 @@ class _aboutState extends State<about> {
         backgroundColor: Colors.black,
       ),
       backgroundColor: Colors.black,
-      body:Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", style: GoogleFonts.montserrat(
+      body:Stack(
+        children: [
+          Container(
+              width:MediaQuery.of(context).size.width ,
+              height:MediaQuery.of(context).size.height,
+              child: Image(image: AssetImage('images/pana.png'),fit: BoxFit.cover, color: Colors.white.withOpacity(0.4), colorBlendMode: BlendMode.modulate,)),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SingleChildScrollView(
+              child: Text("Nationally acknowledged for its array of unforgettable evenings, EFFERVESCENCE is the once in a year cultural epitome of IIITA illuminating the essence and ethos of IIITA witnessing a footfall of 21k+ per year. Effervescence has made a name for itself for the phenomenally successful online versions of the fest due to generous views and comments during the talk shows, comedy gigs and body-grooving musical performances.All the more, the online version of Effervescence has observed increased participation in tournaments, games and competitive events as well with an average of 200 students competing. Each event reaches a different key audience segment and provides a fun, entertaining and engaging way to “wow” the audience.", style: GoogleFonts.montserrat(
     textStyle: TextStyle(color: Colors.white,fontSize: 22,fontWeight: FontWeight.w400),),),
+            ),
+          ),
+        ],
       ),
 
     );

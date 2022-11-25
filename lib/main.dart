@@ -55,13 +55,19 @@ class _HomeScreenState extends State<HomeScreen> {
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
           onTap: _updateIndex,
-          backgroundColor: Colors.grey[900],
+          backgroundColor: Colors.transparent,
           type: BottomNavigationBarType.fixed,
-          selectedIconTheme: IconThemeData(color: Colors.red),
-          selectedItemColor: Colors.red,
+          selectedIconTheme: IconThemeData(color: Color.fromRGBO(119, 0, 138, 1),),
+          selectedItemColor: Color.fromRGBO(119, 0, 138, 1),
           unselectedItemColor: Colors.white,
-          selectedFontSize: 14,
-          unselectedFontSize: 11,
+          selectedFontSize: 20,
+          selectedLabelStyle: GoogleFonts.jollyLodger(
+        textStyle: TextStyle(
+        letterSpacing: 1.6,)),
+          unselectedLabelStyle: GoogleFonts.jollyLodger(
+              textStyle: TextStyle(
+                letterSpacing: 1.6,)),
+          unselectedFontSize: 16,
           iconSize: 35,
           items: [
             BottomNavigationBarItem(
