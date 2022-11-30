@@ -20,7 +20,7 @@ class _morescreenState extends State<morescreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(backgroundColor:Color.fromRGBO(119, 0, 138, 1),elevation:0,title: Text('MORE',style: TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.bold),),),
+      appBar: AppBar(backgroundColor:Color.fromRGBO(119, 0, 138, 1),elevation:0,title: Text('MORE',style: TextStyle(color: Colors.white,fontSize: 27,fontWeight: FontWeight.bold),),),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(

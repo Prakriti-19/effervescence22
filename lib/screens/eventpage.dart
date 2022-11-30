@@ -31,7 +31,7 @@ class _eventpageState extends State<eventpage> {
                         children: [
                           Container(
                               decoration: new BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(18)),image: DecorationImage(
-          image: AssetImage('images/bg.jpeg'), fit: BoxFit.cover),
+          image:  NetworkImage(widget.profile.url), fit: BoxFit.cover),
       ),
                               width:MediaQuery.of(context).size.width * 0.36,
                               height:MediaQuery.of(context).size.height * 0.3,

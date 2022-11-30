@@ -11,6 +11,8 @@ class developers extends StatefulWidget {
   _developersState createState() => _developersState();
 }
 List<String> name= [];
+List<String> urls=[];
+List<String> wing=[];
 int c=0;
 class _developersState extends State<developers> {
   @override
@@ -34,6 +36,8 @@ class _developersState extends State<developers> {
             final documentSnapshotList = snapshot.data!.docs;
             documentSnapshotList.forEach((element) {
               name.add(element['name']);
+              wing.add(element['title']);
+              urls.add(element['url']);
             });
             var url = 'https://www.instagram.com/<prakriti_193>/';
             c=documentSnapshotList.length;
@@ -41,93 +45,85 @@ class _developersState extends State<developers> {
               itemCount: c,
               itemBuilder: (context, index) {
                 return InkWell(
-                 onTap: (){
-                  showDialog(
-                    context: context,
-                    builder: (ctx) =>AlertDialog(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                      backgroundColor: Colors.black,
-                      actions: <Widget>[
-                        Container(
-                          decoration: new BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage('images/bg.jpeg'),fit: BoxFit.cover,
+                  onTap: (){
+                    showDialog(
+                      context: context,
+                      builder: (ctx) => AlertDialog(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                        backgroundColor: Colors.black,
+                        actions: <Widget>[
+                          Container(
+                            decoration: new BoxDecoration(
+                              image: DecorationImage(
+                                image: NetworkImage(urls[index]),fit: BoxFit.cover,
+                              ),
+                              borderRadius:
+                              new BorderRadius.all(new Radius.circular(20.0)),
                             ),
-                            borderRadius:
-                            new BorderRadius.all(new Radius.circular(20.0)),
+                            height: MediaQuery.of(context).size.height*0.45,
+                            //  child: Image( image: AssetImage('images/bg.jpeg'),fit: BoxFit.cover,)
                           ),
-                          height: MediaQuery.of(context).size.height*0.45,
-                          //  child: Image( image: AssetImage('images/bg.jpeg'),fit: BoxFit.cover,)
-                        ),
-                        Align(
-                          alignment: Alignment.bottomRight,
-                          child: Text(name[index],style:  GoogleFonts.montserrat(
-                              textStyle: TextStyle(color: Colors.white, fontSize: 24)),),
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(ctx).pop();
-                          },
-                          child: Container(
-                            child: Icon(Icons.close,color: Colors.white,),
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: Text(name[index],style:  GoogleFonts.montserrat(
+                                textStyle: TextStyle(color: Colors.white, fontSize: 24)),),
                           ),
-                        ),
-                      ],
-                    ),);
-                },
+                          Text(wing[index],style:  GoogleFonts.montserrat(
+                              textStyle: TextStyle(color: Colors.white, fontSize: 19)),),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(ctx).pop();
+                            },
+                            child: Container(
+                              child: Icon(Icons.close,color: Colors.white,),
+                            ),
+                          ),
+                        ],
+                      ),);
+                  },
+
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 4),
                     child: Container(
-                        decoration: new BoxDecoration( gradient: LinearGradient(
+                        height: MediaQuery.of(context).size.width * 0.2,
+                        decoration: new BoxDecoration(gradient: LinearGradient(
                           colors: [Color.fromRGBO(119, 0, 138, 1), Colors.black],
                           begin: Alignment.centerRight,
                           end: Alignment.centerLeft,
                         ),borderRadius: BorderRadius.all(Radius.circular(18))),
                         child: Row(
+                          //  mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             SizedBox(width:MediaQuery.of(context).size.width * 0.05,),
                             CircleAvatar(
+                              foregroundColor:Colors.black,
+                              backgroundColor: Colors.black,
                               radius: 24,
-                              backgroundImage: AssetImage('images/logo.png'),
+                              backgroundImage: NetworkImage(urls[index]),
                             ),
                             SizedBox(width:MediaQuery.of(context).size.width * 0.035,),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                SizedBox(height:MediaQuery.of(context).size.width * 0.02,),
                                 Text(name[index], style: GoogleFonts.montserrat(
-                                  textStyle:TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w400),),),
-                                Row(
-                                  children: [
-                                    IconButton(
-                                      color: Colors.red,
-                                      onPressed:() async {
-                                      if (await canLaunch(url)) {
-                                    await launch(
-                                    url,
-                                    universalLinksOnly: true,
-                                    );
-                                    } else {
-                                    throw 'There was a problem to open the url: $url';
-                                    }}, icon:ImageIcon(
-                                        AssetImage("images/insta.png"),color: Colors.white,size: 22,),
-                                    ),
-                                    IconButton(                                color: Colors.red,
-                                      onPressed:() async {
-                                      if (await canLaunch(url)) {
-                                        await launch(
-                                          url,
-                                          universalLinksOnly: true,
-                                        );
-                                      } else {
-                                        throw 'There was a problem to open the url: $url';
-                                      }}, icon:ImageIcon(
-                                        AssetImage("images/fb.png"),color: Colors.white,size: 18,),
-                                    ),
-
-                                  ],
-                                ),
+                                  textStyle: TextStyle(color: Colors.white,fontSize: 19,fontWeight: FontWeight.w400),),),
+                                Text(wing[index], style: GoogleFonts.montserrat(
+                                  textStyle: TextStyle(color: Colors.white,fontSize: 14,fontWeight: FontWeight.w400),),),
+                                SizedBox(height:MediaQuery.of(context).size.width * 0.045,),
                               ],
+                            ),
+                            Spacer(),
+                            IconButton(
+                              onPressed:() async {
+                                if (await canLaunchUrl(Uri.parse(url))) {
+                                  await launchUrl(Uri.parse(url));
+                                } else {
+                                  throw 'Could not launch $url';
+                                }
+                              }, icon:ImageIcon(
+                                AssetImage("images/insta.png",),color: Colors.white,size: 18),
                             ),
                           ],
                         )),

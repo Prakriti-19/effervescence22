@@ -18,41 +18,29 @@ class Homescreen extends StatelessWidget {
       home: Container(
         child: Scaffold(
           appBar: AppBar(
-            leading: Row(
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.025,
-                ),
-                Container(
-                  height: 50,
-                  child: Image(image: AssetImage('images/Effe_logo.png')),
-                ),
-              ],
+            leading:
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image(image: AssetImage('images/Effe_logo.png'),height: 10,),
             ),
-            title: Row(
-              children: [
-                Text(
-                  "Effervescence'22",
-                  style: GoogleFonts.creepster(
-                      textStyle: TextStyle(color: Colors.white, fontSize: 27)),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.1,
-                ),
-                IconButton(
-                  color: Colors.red,
-                  onPressed: () async {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => update()));
-                  },
-                  icon: Icon(
-                    Icons.notifications,
-                    size: 32,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
+
+            title:Text(
+              "Effervescence'22",
+              style: GoogleFonts.creepster(
+                  textStyle: TextStyle(color: Colors.white, fontSize: 29)),
             ),
+            actions: [ IconButton(
+              color: Colors.red,
+              onPressed: () async {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => update()));
+              },
+              icon: Icon(
+                Icons.notifications,
+                size: 35,
+                color: Colors.white,
+              ),
+            ),],
 
             elevation: 0,
             backgroundColor: Color.fromRGBO(119, 0, 138, 1),
@@ -79,7 +67,7 @@ class Homescreen extends StatelessWidget {
                   Column(
                     children: [
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.09,
+                        height: MediaQuery.of(context).size.height * 0.137,
                       ),
                       TweenAnimationBuilder<Duration>(
                           duration: Duration(

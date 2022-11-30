@@ -25,23 +25,11 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          Container(
-            color: Colors.black,
-          ),
-              Expanded(
-                flex: 2,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Padding(padding: EdgeInsets.only(top: 20.0, bottom: 20.0)),
-                    Image(image: AssetImage('images/logo.png'),fit: BoxFit.fill,),
-                  ],
-                ),
-              ),
-            ],
+      body:Container(
+        width: MediaQuery.of(context).size.width ,
+        height: MediaQuery.of(context).size.height,
+                child: Image(image: AssetImage('images/logo.png'),fit: BoxFit.fill,),
+
           )
     );
   }

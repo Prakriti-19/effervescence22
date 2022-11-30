@@ -19,7 +19,6 @@ class _eventsState extends State<events> {
    Widget build(BuildContext context) {
     int c = 0;
    int _current=0;
-    //  List<String> url = [];
     List<String> name = [];
     List<String> desc = [];
     List<String> date = [];
@@ -60,7 +59,23 @@ class _eventsState extends State<events> {
     List<String> date8 = [];
     List<String> time8 = [];
     List<String> venue8 = [];
-   
+    List<String> url=[];
+    List<String> url7=[];
+    List<String> url8=[];
+    List<String> url2=[];
+    List<String> url3=[];
+    List<String> url4=[];
+    List<String> url5=[];
+    List<String> url6 = [];
+    List<String> form1 = [];
+    List<String> form2= [];
+    List<String> form3= [];
+    List<String> form4 = [];
+    List<String> form5 = [];
+    List<String> form6 = [];
+    List<String> form7 = [];
+    List<String> form8 = [];
+
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -110,10 +125,11 @@ class _eventsState extends State<events> {
                                     date.add(element['date']);
                                     time.add(element['time']);
                                     venue.add(element['venue']);
-
+                                    url.add(element['url']);
+                                    form1.add(element['form']);
                                   });
                                   c=documentSnapshotList.length;
-                                  final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i],));
+                                  final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i], url: url[i], form: form1[i],));
                                   return ListView.builder(
                                     scrollDirection: Axis.horizontal,
                                     itemCount: c,
@@ -145,10 +161,11 @@ class _eventsState extends State<events> {
                                     date2.add(element['date']);
                                     time2.add(element['time']);
                                     venue2.add(element['venue']);
-
+                                    url2.add(element['url']);
+                                    form2.add(element['form']);
                                   });
                                   c=documentSnapshotList.length;
-                                  final profile = List<Profile>.generate(c, (i) => Profile(name: name2[i],time:time2[i], details: desc2[i], venue: venue2[i], date: date2[i],));
+                                  final profile = List<Profile>.generate(c, (i) => Profile(name: name2[i],time:time2[i], details: desc2[i], venue: venue2[i], date: date2[i], url: url2[i], form: form2[i],));
                                   return ListView.builder(
                                     scrollDirection: Axis.horizontal,
                                     itemCount: c,
@@ -178,11 +195,12 @@ class _eventsState extends State<events> {
                                     desc3.add(element['details']);
                                     date3.add(element['date']);
                                     time3.add(element['time']);
+                                    form3.add(element['form']);
                                     venue3.add(element['venue']);
-
+                                    url3.add(element['url']);
                                   });
                                   c=documentSnapshotList.length;
-                                  final profile = List<Profile>.generate(c, (i) => Profile(name: name3[i],time:time3[i], details: desc3[i], venue: venue3[i], date: date3[i],));
+                                  final profile = List<Profile>.generate(c, (i) => Profile(name: name3[i],time:time3[i], details: desc3[i], venue: venue3[i], date: date3[i], url: url3[i], form: form3[i],));
                                   return ListView.builder(
                                     scrollDirection: Axis.horizontal,
                                     itemCount: c,
@@ -209,13 +227,14 @@ class _eventsState extends State<events> {
                               documentSnapshotList.forEach((element) {
                                 name4.add(element['name']);
                                 desc4.add(element['details']);
+                                form4.add(element['form']);
                                 date4.add(element['date']);
                                 time4.add(element['time']);
                                 venue4.add(element['venue']);
-
+                                url4.add(element['url']);
                               });
                               c=documentSnapshotList.length;
-                              final profile = List<Profile>.generate(c, (i) => Profile(name: name4[i],time:time4[i], details: desc4[i], venue: venue4[i], date: date4[i],));
+                              final profile = List<Profile>.generate(c, (i) => Profile(name: name4[i],time:time4[i], details: desc4[i], venue: venue4[i], date: date4[i], url: url4[i], form: form4[i],));
                                 return ListView.builder(
                                 scrollDirection: Axis.horizontal,
                                 itemCount: c,
@@ -244,11 +263,12 @@ class _eventsState extends State<events> {
                                 desc5.add(element['details']);
                                 date5.add(element['date']);
                                 time5.add(element['time']);
+                                form5.add(element['form']);
                                 venue5.add(element['venue']);
-
+                                url5.add(element['url']);
                               });
                               c=documentSnapshotList.length;
-                              final profile = List<Profile>.generate(c, (i) => Profile(name: name5[i],time:time5[i], details: desc5[i], venue: venue5[i], date: date5[i],));
+                              final profile = List<Profile>.generate(c, (i) => Profile(name: name5[i],time:time5[i], details: desc5[i], venue: venue5[i], date: date5[i], url: url5[i], form: form5[i],));
                               return ListView.builder(
                                 scrollDirection: Axis.horizontal,
                                 itemCount: c,
@@ -279,10 +299,11 @@ class _eventsState extends State<events> {
                                 date6.add(element['date']);
                                 time6.add(element['time']);
                                 venue6.add(element['venue']);
-
+                                url6.add(element['url']);
+                                form6.add(element['form']);
                               });
                               c=documentSnapshotList.length;
-                              final profile = List<Profile>.generate(c, (i) => Profile(name: name6[i],time:time6[i], details: desc6[i], venue: venue6[i], date: date6[i],));
+                              final profile = List<Profile>.generate(c, (i) => Profile(name: name6[i],time:time6[i], details: desc6[i], venue: venue6[i], date: date6[i], url: url[i], form: form6[i],));
                               return ListView.builder(
                                 scrollDirection: Axis.horizontal,
                                 itemCount: c,
@@ -313,10 +334,11 @@ class _eventsState extends State<events> {
                                 date7.add(element['date']);
                                 time7.add(element['time']);
                                 venue7.add(element['venue']);
-
+                                url7.add(element['url']);
+                                form7.add(element['form']);
                               });
                               c=documentSnapshotList.length;
-                              final profile = List<Profile>.generate(c, (i) => Profile(name: name7[i],time:time7[i], details: desc7[i], venue: venue7[i], date: date7[i],));
+                              final profile = List<Profile>.generate(c, (i) => Profile(name: name7[i],time:time7[i], details: desc7[i], venue: venue7[i], date: date7[i], url: url7[i], form: form7[i],));
                               return ListView.builder(
                                 scrollDirection: Axis.horizontal,
                                 itemCount: c,
@@ -347,10 +369,11 @@ class _eventsState extends State<events> {
                                 date8.add(element['date']);
                                 time8.add(element['time']);
                                 venue8.add(element['venue']);
-
+                                form8.add(element['form']);
+                                url8.add(element['url']);
                               });
                               c=documentSnapshotList.length;
-                              final profile = List<Profile>.generate(c, (i) => Profile(name: name8[i],time:time8[i], details: desc8[i], venue: venue8[i], date: date8[i],));
+                              final profile = List<Profile>.generate(c, (i) => Profile(name: name8[i],time:time8[i], details: desc8[i], venue: venue8[i], date: date8[i], url: url6[i], form: form8[i],));
                               return ListView.builder(
                                 scrollDirection: Axis.horizontal,
                                 itemCount: c,

@@ -2,6 +2,7 @@ import 'package:effervescence22/classes/merchprofile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class merchdetail extends StatefulWidget {
   final Merchdetails profile;
@@ -14,6 +15,7 @@ class merchdetail extends StatefulWidget {
 class _merchdetailState extends State<merchdetail> {
   @override
   Widget build(BuildContext context) {
+    String url=widget.profile.form;
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -43,7 +45,7 @@ class _merchdetailState extends State<merchdetail> {
                   style: GoogleFonts.montserrat(
                     textStyle: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 20,
+                        fontSize: 24,
                         color: Colors.white),
                   ),
                 ),
@@ -58,16 +60,19 @@ class _merchdetailState extends State<merchdetail> {
                   style: GoogleFonts.montserrat(
                       textStyle: TextStyle(
                           color: Colors.white,
-                          fontWeight: FontWeight.w300,
-                          fontSize: 16)),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 20)),
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.width * 0.029,
+                height: MediaQuery.of(context).size.width * 0.025,
               ),
               Row(
                // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.025,
+                  ),
                   Container(
                       width: MediaQuery.of(context).size.width * 0.042,
                       child: Image(
@@ -80,7 +85,7 @@ class _merchdetailState extends State<merchdetail> {
                       style: GoogleFonts.montserrat(
                         textStyle: TextStyle(
                             fontWeight: FontWeight.w300,
-                            fontSize: 27,
+                            fontSize: 24,
                             color: Colors.white),
                       ),
                     ),
@@ -93,30 +98,28 @@ class _merchdetailState extends State<merchdetail> {
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: MediaQuery.of(context).size.width * 0.1),
-                child: Container(
-                  decoration: new BoxDecoration(
-                      color: Color.fromRGBO(119, 0, 138, 1),
-                      borderRadius:
-                      BorderRadius.all(Radius.circular(10))),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    fixedSize: Size(140,50),
+                      elevation: 0,
+                      primary: Color.fromRGBO(119, 0, 138, 1),),
+                  onPressed: () async{
+                    if (await canLaunchUrl(Uri.parse(url))) {
+                      await launchUrl(Uri.parse(url));
+                    } else {
+                      throw 'Could not launch $url';
+                    }
+                  },
                   child: Padding(
-                    padding: const EdgeInsets.all(1),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                          primary: Color.fromRGBO(119, 0, 138, 1),),
-                      onPressed: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal:20),
-                        child: Text('Buy Now',
-                            style: GoogleFonts.montserrat(
-                                textStyle: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 19))),
-                      ),
-                    ),
+                    padding: const EdgeInsets.symmetric(horizontal:3),
+                    child: Text('Buy Now',
+                        style: GoogleFonts.montserrat(
+                            textStyle: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 19))),
                   ),
-                  )),
+                )),
               SizedBox(
                 height: MediaQuery.of(context).size.width * 0.035,
               ),
@@ -126,11 +129,11 @@ class _merchdetailState extends State<merchdetail> {
                   'Product Description',
                   style: GoogleFonts.montserrat(
                       textStyle:
-                      TextStyle(color: Colors.white, fontSize: 20)),
+                      TextStyle(color: Colors.white, fontSize: 22)),
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.width * 0.029,
+                height: MediaQuery.of(context).size.width * 0.016,
 
               ),
               Container(

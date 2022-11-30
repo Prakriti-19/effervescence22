@@ -73,7 +73,7 @@ class _ProState extends State<Pro> {
           //  width:MediaQuery.of(context).size.width ,
             margin: EdgeInsets.only(left: 5, right: 5),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(22),
               image: DecorationImage(
                   image: AssetImage(image[index]), fit: BoxFit.cover),
             ),

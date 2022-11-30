@@ -20,11 +20,12 @@ class _shopState extends State<shop> {
     List<String> name = [];
     List<String> type = [];
     List<String> cost = [];
+    List<String> form = [];
 
     return Scaffold(
         appBar: AppBar(
           title: Text("Shop", style: GoogleFonts.montserrat(
-        textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),),
+        textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 27),),),
           backgroundColor: Colors.black,
         ),
         body:
@@ -44,9 +45,10 @@ class _shopState extends State<shop> {
                       desc.add(element['desc']);
                       type.add(element['type']);
                       cost.add(element['cost']);
+                      form.add((element['form']));
                     });
                     c=documentSnapshotList.length;
-                    final profile = List<Merchdetails>.generate(c, (i) => Merchdetails(name: name[i],type:type[i], desc: desc[i], cost: cost[i]));
+                    final profile = List<Merchdetails>.generate(c, (i) => Merchdetails(name: name[i],type:type[i], desc: desc[i], cost: cost[i], form: form[i]));
                     return ListView.builder(
                       itemCount: c,
                       itemBuilder: (context, index) {

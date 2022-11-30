@@ -50,9 +50,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.black87,
         body: _screens[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
+
           currentIndex: _currentIndex,
           onTap: _updateIndex,
           backgroundColor: Colors.transparent,
@@ -60,15 +61,15 @@ class _HomeScreenState extends State<HomeScreen> {
           selectedIconTheme: IconThemeData(color: Color.fromRGBO(119, 0, 138, 1),),
           selectedItemColor: Color.fromRGBO(119, 0, 138, 1),
           unselectedItemColor: Colors.white,
-          selectedFontSize: 20,
+          selectedFontSize: 18,
           selectedLabelStyle: GoogleFonts.jollyLodger(
         textStyle: TextStyle(
         letterSpacing: 1.6,)),
           unselectedLabelStyle: GoogleFonts.jollyLodger(
               textStyle: TextStyle(
                 letterSpacing: 1.6,)),
-          unselectedFontSize: 16,
-          iconSize: 35,
+          unselectedFontSize: 14,
+          iconSize: 30,
           items: [
             BottomNavigationBarItem(
               label: "Events",

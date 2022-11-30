@@ -60,7 +60,7 @@ class _merchpageState extends State<merchpage> {
                               Container(
                                 width: MediaQuery.of(context).size.width * 0.6,
                                 child: Text(
-                                  '${widget.profile.name.toUpperCase()} ',
+                                  '${widget.profile.name} ',
           style: GoogleFonts.montserrat(
           textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 24,color: Colors.white),),
                                 ),
@@ -76,7 +76,7 @@ class _merchpageState extends State<merchpage> {
                               Container(
                                 width: MediaQuery.of(context).size.width * 0.6,
                                 child: Text(
-                                  '${widget.profile.desc.toUpperCase()} ',
+                                  '${widget.profile.desc} ',
                                   style: GoogleFonts.montserrat(
                                     textStyle: TextStyle(fontWeight: FontWeight.w300, fontSize: 12,color: Colors.white),),
                                 ),

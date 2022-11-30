@@ -24,7 +24,7 @@ class _sponsorState extends State<sponsor> {
           title: Text(
             "Sponsors",
     style: GoogleFonts.montserrat(
-    textStyle:TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 30),),
+    textStyle:TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 27),),
           ),
           backgroundColor: Colors.black,
         ),
@@ -32,7 +32,7 @@ class _sponsorState extends State<sponsor> {
             color: Colors.black,
             child: StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
-                    .collection('sponsors')
+                    .collection('sponsors').orderBy('no',descending:false)
                     .snapshots(),
                 builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (!snapshot.hasData) {
@@ -51,8 +51,6 @@ class _sponsorState extends State<sponsor> {
                       crossAxisCount: 2,
                       mainAxisSpacing: 15,
                     ),
-                    //padding: EdgeInsets.all(25),
-                    // physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.fromLTRB(7,0,7,0),
