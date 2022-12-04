@@ -56,6 +56,14 @@ class _teamState extends State<team> {
                             borderRadius: BorderRadius.all(Radius.circular(20.0))),
                         backgroundColor: Colors.black,
                         actions: <Widget>[
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(ctx).pop();
+                            },
+                            child: Container(
+                              child: Icon(Icons.close,color: Colors.white,),
+                            ),
+                          ),
                           Container(
                               decoration: new BoxDecoration(
                                 image: DecorationImage(
@@ -67,20 +75,15 @@ class _teamState extends State<team> {
                             height: MediaQuery.of(context).size.height*0.45,
                             //  child: Image( image: AssetImage('images/bg.jpeg'),fit: BoxFit.cover,)
                     ),
-                            Align(
-                              alignment: Alignment.bottomRight,
-                              child: Text(name[index],style:  GoogleFonts.montserrat(
-                                  textStyle: TextStyle(color: Colors.white, fontSize: 24)),),
-                            ),
-                           Text(wing[index],style:  GoogleFonts.montserrat(
-                               textStyle: TextStyle(color: Colors.white, fontSize: 19)),),
-                           TextButton(
-                            onPressed: () {
-                              Navigator.of(ctx).pop();
-                            },
-                            child: Container(
-                              child: Icon(Icons.close,color: Colors.white,),
-                            ),
+                          Align(
+                            alignment: Alignment.bottomLeft,
+                            child: Text(name[index],style:  GoogleFonts.montserrat(
+                                textStyle: TextStyle(color: Colors.white, fontSize: 24)),),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomLeft,
+                            child: Text(wing[index],style:  GoogleFonts.montserrat(
+                                textStyle: TextStyle(color: Colors.white, fontSize: 19)),),
                           ),
                         ],
     ),);
@@ -90,7 +93,10 @@ class _teamState extends State<team> {
                     padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 4),
                     child: Container(
                       height: MediaQuery.of(context).size.width * 0.2,
-                        decoration: new BoxDecoration(gradient: LinearGradient(
+                        decoration: new BoxDecoration( border: Border.all(
+                          color: Colors.white, //color of border
+                          width: 0.17, //width of border
+                        ),gradient: LinearGradient(
                           colors: [Color.fromRGBO(119, 0, 138, 1), Colors.black],
                           begin: Alignment.centerRight,
                           end: Alignment.centerLeft,
@@ -102,7 +108,7 @@ class _teamState extends State<team> {
                             CircleAvatar(
                               foregroundColor:Colors.black,
                               backgroundColor: Colors.black,
-                              radius: 24,
+                              radius: 26,
                               backgroundImage: NetworkImage(urls[index]),
                             ),
                             SizedBox(width:MediaQuery.of(context).size.width * 0.035,),
@@ -118,16 +124,16 @@ class _teamState extends State<team> {
                               ],
                             ),
                             Spacer(),
-                            IconButton(
-                              onPressed:() async {
-                                if (await canLaunchUrl(Uri.parse(url))) {
-                                  await launchUrl(Uri.parse(url));
-                                } else {
-                                  throw 'Could not launch $url';
-                                }
-                              }, icon:ImageIcon(
-                                AssetImage("images/insta.png",),color: Colors.white,size: 18),
-                            ),
+                            // IconButton(
+                            //   onPressed:() async {
+                            //     if (await canLaunchUrl(Uri.parse(url))) {
+                            //       await launchUrl(Uri.parse(url));
+                            //     } else {
+                            //       throw 'Could not launch $url';
+                            //     }
+                            //   }, icon:ImageIcon(
+                            //     AssetImage("images/insta.png",),color: Colors.white,size: 18),
+                            // ),
                           ],
                         )),
                   ),

@@ -10,8 +10,8 @@ class faq extends StatefulWidget {
 }
 
 class _faqState extends State<faq> {
-List<String> q=["Will the merch be delivered home?\n","How can I buy effe merch?\n","Can outsiders come to offline Effe?\n"];
-List<String> a=["Yes! Your ordered merch will be shipped to the shipping address that you register while ordering them.","Yes! Your ordered merch will be shipped to the shipping address that you register while ordering them.","Yes! Your ordered merch will be shipped to the shipping address that you register while ordering them."];
+List<String> q=["How can I buy the Effervescence merch?\n","Will the merch be delivered home?\n","Is there any delivery charge if I buy the merch?\n","Is the combo cheaper than buying the individual hoodies?\n","Can outsiders come to Effervescence '22?\n"];
+List<String> a=["Just fill the google form circulated to buy the Effervescence '22 merch.","Yes! Your ordered merch will be shipped to the shipping address that you register while ordering them.","No, the delivery is completely free of cost.","Yes, the combo is much cheaper.","Yes, with a nominal fee, outsiders can attend the majestic Effervescence '22!"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,20 +33,18 @@ List<String> a=["Yes! Your ordered merch will be shipped to the shipping address
     body: Container(
       decoration: BoxDecoration(
         color: Colors.black,
-        // gradient: LinearGradient(
-        //   colors: [Color.fromRGBO(119, 0, 138, 1), Colors.black],
-        //   begin: Alignment.topCenter,
-        //   end: Alignment.bottomCenter,
-        // ),
       ),
       child: ListView.builder(
-        itemCount: 3,
+        itemCount: 5,
         itemBuilder: (context, index) {
       return Padding(
-        padding: const EdgeInsets.all(13.0),
+        padding: const EdgeInsets.all(6.0),
         child: Container(
-          //margin:EdgeInsets.all(8.0) ,
-          decoration: BoxDecoration( //color: Color.fromRGBO(119, 0, 138, 1)
+           decoration: BoxDecoration(
+        //border: Border.all(
+          //   color: Colors.white, //color of border
+          //   width: 0.1, //width of border
+          // ),
              gradient: LinearGradient(
             colors: [Color.fromRGBO(119, 0, 138, 1), Colors.black],
             begin: Alignment.topCenter,

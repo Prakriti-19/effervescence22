@@ -13,6 +13,7 @@ class developers extends StatefulWidget {
 List<String> name= [];
 List<String> urls=[];
 List<String> wing=[];
+List<String> git=['https://www.instagram.com/<prakriti_193>/','https://www.instagram.com/<prakriti_193>/','https://www.instagram.com/<prakriti_193>/','https://www.instagram.com/<prakriti_193>/','https://www.instagram.com/<prakriti_193>/'];
 int c=0;
 class _developersState extends State<developers> {
   @override
@@ -39,7 +40,6 @@ class _developersState extends State<developers> {
               wing.add(element['title']);
               urls.add(element['url']);
             });
-            var url = 'https://www.instagram.com/<prakriti_193>/';
             c=documentSnapshotList.length;
             return ListView.builder(
               itemCount: c,
@@ -53,6 +53,14 @@ class _developersState extends State<developers> {
                             borderRadius: BorderRadius.all(Radius.circular(20.0))),
                         backgroundColor: Colors.black,
                         actions: <Widget>[
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(ctx).pop();
+                            },
+                            child: Container(
+                              child: Icon(Icons.close,color: Colors.white,),
+                            ),
+                          ),
                           Container(
                             decoration: new BoxDecoration(
                               image: DecorationImage(
@@ -65,19 +73,14 @@ class _developersState extends State<developers> {
                             //  child: Image( image: AssetImage('images/bg.jpeg'),fit: BoxFit.cover,)
                           ),
                           Align(
-                            alignment: Alignment.bottomRight,
+                            alignment: Alignment.bottomLeft,
                             child: Text(name[index],style:  GoogleFonts.montserrat(
                                 textStyle: TextStyle(color: Colors.white, fontSize: 24)),),
                           ),
-                          Text(wing[index],style:  GoogleFonts.montserrat(
-                              textStyle: TextStyle(color: Colors.white, fontSize: 19)),),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(ctx).pop();
-                            },
-                            child: Container(
-                              child: Icon(Icons.close,color: Colors.white,),
-                            ),
+                          Align(
+                            alignment: Alignment.bottomLeft,
+                            child: Text(wing[index],style:  GoogleFonts.montserrat(
+                                textStyle: TextStyle(color: Colors.white, fontSize: 19)),),
                           ),
                         ],
                       ),);
@@ -87,7 +90,10 @@ class _developersState extends State<developers> {
                     padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 4),
                     child: Container(
                         height: MediaQuery.of(context).size.width * 0.2,
-                        decoration: new BoxDecoration(gradient: LinearGradient(
+                        decoration: new BoxDecoration( border: Border.all(
+                          color: Colors.white, //color of border
+                          width: 0.17, //width of border
+                        ),gradient: LinearGradient(
                           colors: [Color.fromRGBO(119, 0, 138, 1), Colors.black],
                           begin: Alignment.centerRight,
                           end: Alignment.centerLeft,
@@ -99,7 +105,7 @@ class _developersState extends State<developers> {
                             CircleAvatar(
                               foregroundColor:Colors.black,
                               backgroundColor: Colors.black,
-                              radius: 24,
+                              radius: 26,
                               backgroundImage: NetworkImage(urls[index]),
                             ),
                             SizedBox(width:MediaQuery.of(context).size.width * 0.035,),
@@ -117,14 +123,15 @@ class _developersState extends State<developers> {
                             Spacer(),
                             IconButton(
                               onPressed:() async {
-                                if (await canLaunchUrl(Uri.parse(url))) {
-                                  await launchUrl(Uri.parse(url));
+                                if (await canLaunchUrl(Uri.parse(git[index]))) {
+                                  await launchUrl(Uri.parse(git[index]));
                                 } else {
-                                  throw 'Could not launch $url';
+                                  throw 'Could not launch $git[index]';
                                 }
                               }, icon:ImageIcon(
-                                AssetImage("images/insta.png",),color: Colors.white,size: 18),
+                                AssetImage("images/git.png",),size: 70),
                             ),
+                            SizedBox(width:MediaQuery.of(context).size.width * 0.03,),
                           ],
                         )),
                   ),

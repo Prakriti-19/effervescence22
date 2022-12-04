@@ -22,7 +22,10 @@ class _merchpageState extends State<merchpage> {
 
       padding: EdgeInsets.symmetric(horizontal: 5,vertical: 8),
       child: Container(
-        decoration: new BoxDecoration(  gradient: LinearGradient(
+        decoration: new BoxDecoration( border: Border.all(
+          color: Colors.white, //color of border
+          width: 0.16, //width of border
+        ), gradient: LinearGradient(
           colors: [Color.fromRGBO(119, 0, 138, 1), Colors.black],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
@@ -34,7 +37,7 @@ class _merchpageState extends State<merchpage> {
               padding: EdgeInsets.symmetric(horizontal: 5,vertical: 8),
               child: Stack(children: <Widget>[
                 Container(
-                  decoration: new BoxDecoration(  gradient: LinearGradient(
+                  decoration: new BoxDecoration(gradient: LinearGradient(
                     colors: [Color.fromRGBO(119, 0, 138, 1), Colors.black],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,

@@ -36,6 +36,7 @@ dependencies:
   flutter_staggered_animations: ^1.0.0
   cupertino_icons: ^1.0.2
   fab_circular_menu: ^1.0.2
+  timer_count_down: ^2.2.1
   expandable_text: 2.3.0
   firebase_auth: ^3.3.9
   google_fonts: ^2.3.1
@@ -91,7 +92,10 @@ flutter:
      - images/bg.jpeg
      - images/pana.png
      - images/ua.jpeg
-     - images/ash.jpeg
+     - images/a.png
+     - images/d.png
+     - images/git.png
+     - images/e.png
      - images/merch.png
 
 

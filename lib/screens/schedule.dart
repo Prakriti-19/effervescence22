@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class schedule extends StatefulWidget {
   const schedule({Key? key}) : super(key: key);
@@ -8,45 +10,57 @@ class schedule extends StatefulWidget {
   _scheduleState createState() => _scheduleState();
 }
 
+List<String> url = [];
+
 class _scheduleState extends State<schedule> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.black
-        // gradient: LinearGradient(
-        //   colors: [Color.fromRGBO(119, 0, 138, 1), Colors.black],
-        //   begin: Alignment.topCenter,
-        //   end: Alignment.bottomCenter,
-        // ),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.black,
+    return Scaffold(
         appBar: AppBar(
-          elevation: 0,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_ios),
+          ),
           title: Text(
             "Schedule",
-            style: TextStyle(
-                fontSize: 27, color: Colors.white, fontWeight: FontWeight.bold),
+            style: GoogleFonts.montserrat(
+              textStyle: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 27),
+            ),
           ),
-          backgroundColor: Color.fromRGBO(119, 0, 138, 1),
+          backgroundColor: Colors.black,
         ),
         body: Container(
-          decoration: BoxDecoration(
-              color: Colors.black
-            // gradient: LinearGradient(
-            //   colors: [Color.fromRGBO(119, 0, 138, 1), Colors.black],
-            //   begin: Alignment.topCenter,
-            //   end: Alignment.bottomCenter,
-            // ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(14.0),
-            child: Container(color:Colors.grey[900],//child: Image(image: AssetImage('images/logo.png'))
-       ),
-          ),
-        ),
-      ),
-    );
+          color: Colors.black,
+          child: StreamBuilder<QuerySnapshot>(
+              stream:
+                  FirebaseFirestore.instance.collection('schedule').snapshots(),
+              builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (!snapshot.hasData) {
+                  return Center(child: CircularProgressIndicator());
+                }
+                final documentSnapshotList = snapshot.data!.docs;
+                documentSnapshotList.forEach((element) {
+                  url.add(element['url']);
+                });
+
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                            height: MediaQuery.of(context).size.height,
+                            width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: NetworkImage(url[0]),fit: BoxFit.cover,
+                                ),
+                              ),
+                        ),
+                );
+                    })));
+
   }
 }

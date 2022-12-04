@@ -6,10 +6,9 @@ class Pro extends StatefulWidget {
   @override
   _ProState createState() => _ProState();
 }
-List<String> image = ["images/ua.jpeg",
-  "images/ash.jpeg", "images/bg.jpeg"];
+List<String> image = [ "images/d.png","images/a.png", "images/e.png"];
 class _ProState extends State<Pro> {
-  PageController pageController=PageController(viewportFraction: 0.85);
+  PageController pageController=PageController(viewportFraction: 0.9);
   var _cur = 0.0;
   double _scaleFactor=0.7;
   double height=220;
@@ -71,8 +70,12 @@ class _ProState extends State<Pro> {
           Container(
 
           //  width:MediaQuery.of(context).size.width ,
-            margin: EdgeInsets.only(left: 5, right: 5),
+           margin: EdgeInsets.only(left: 4, right: 4),
             decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.white, //color of border
+                width: 2.8, //width of border
+              ),
               borderRadius: BorderRadius.circular(22),
               image: DecorationImage(
                   image: AssetImage(image[index]), fit: BoxFit.cover),

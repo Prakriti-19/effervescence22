@@ -53,33 +53,38 @@ class _sponsorState extends State<sponsor> {
                     ),
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: const EdgeInsets.fromLTRB(7,0,7,0),
+                        padding: const EdgeInsets.fromLTRB(7,1.5,7,1.5),
                         child: Container(
                           height: MediaQuery.of(context).size.height/4,
-                            decoration: new BoxDecoration( gradient: LinearGradient(
-                              colors: [Color.fromRGBO(119, 0, 138, 1), Colors.black],
+                            decoration: new BoxDecoration(  border: Border.all(
+                              color: Colors.white, //color of border
+                              width: 0.17, //width of border
+                            ),gradient: LinearGradient(
+                              colors: [Color.fromRGBO(119, 0, 138, 1), Colors.black45],
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,
                             ),borderRadius: BorderRadius.all(Radius.circular(15))),
                             child: Column(
                               children: [
-                                SizedBox(height:MediaQuery.of(context).size.height * 0.015,),
+                                SizedBox(height:MediaQuery.of(context).size.height * 0.008,),
                                 Container(
-                                    width:MediaQuery.of(context).size.width * 0.3,
+                                    width:MediaQuery.of(context).size.width * 0.37,
                                     height:MediaQuery.of(context).size.height * 0.15,
-                                    child: Image(image: AssetImage('images/Effe_logo.png'))),
-                                SizedBox(height:MediaQuery.of(context).size.height * 0.015,),
+                                   decoration:BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(12)),image: DecorationImage(
+                                        image:  NetworkImage(url[index]), fit: BoxFit.fill))),
+                                SizedBox(height:MediaQuery.of(context).size.height * 0.008,),
                                 Center(
                                   child: Text(name[index],style: GoogleFonts.montserrat(
                                   textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,
                                       fontSize: 15))),
                                 ),
-                                SizedBox(height:MediaQuery.of(context).size.height * 0.005,),
+                                SizedBox(height:MediaQuery.of(context).size.height * 0.003,),
                                 Center(
                                   child: Text(   title[index],textAlign:TextAlign.center,style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,
                                           fontSize: 13))),
                                 ),
+                                SizedBox(height:MediaQuery.of(context).size.height * 0.008,),//SizedBox(height:MediaQuery.of(context).size.height * 0.015,),
                               ],
                             )),
                       );

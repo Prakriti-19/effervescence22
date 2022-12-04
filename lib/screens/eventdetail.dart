@@ -19,11 +19,20 @@ class _detailState extends State<detail> {
     String url=widget.profile.form;
     return Scaffold(
       backgroundColor: Colors.black,
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios),
+        ),
+        backgroundColor: Colors.black,
+      ),
       body: Stack(
         children: [
           Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.55,
+              height: MediaQuery.of(context).size.height * 0.49,
               child: Image(
                 image: NetworkImage(widget.profile.url),
                 fit: BoxFit.fill,
@@ -165,13 +174,14 @@ class _detailState extends State<detail> {
               ),
             ],
           )),
-          Align(
-            alignment: Alignment.centerRight,
+          Positioned(
+           left: MediaQuery.of(context).size.width*0.8,
+            top: MediaQuery.of(context).size.height*0.46,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.18,
-                height: MediaQuery.of(context).size.width * 0.18,
+                width: MediaQuery.of(context).size.width * 0.17,
+                height: MediaQuery.of(context).size.width * 0.17,
                 decoration: BoxDecoration(
                     borderRadius:
                     BorderRadius.all(Radius.circular(15)),
@@ -184,22 +194,22 @@ class _detailState extends State<detail> {
                       ],
                     )),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(6.0),
                   child: Column(
                     children: [
                       Text(
                         "Dec",
                         style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),
                       Text(
                         widget.profile.date,
                         style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400,
+                          fontSize: 23,
+                          fontWeight:FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),

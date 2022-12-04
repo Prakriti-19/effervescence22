@@ -24,6 +24,11 @@ class _eventsState extends State<events> {
     List<String> date = [];
     List<String> time = [];
     List<String> venue = [];
+    List<String> name9 = [];
+    List<String> desc9= [];
+    List<String> date9 = [];
+    List<String> time9 = [];
+    List<String> venue9 = [];
     List<String> name2 = [];
     List<String> desc2 = [];
     List<String> date2 = [];
@@ -68,6 +73,8 @@ class _eventsState extends State<events> {
     List<String> url5=[];
     List<String> url6 = [];
     List<String> form1 = [];
+    List<String> url9 = [];
+    List<String> form9 = [];
     List<String> form2= [];
     List<String> form3= [];
     List<String> form4 = [];
@@ -106,13 +113,13 @@ class _eventsState extends State<events> {
                      Pro(),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                        child: Align(alignment:Alignment.topLeft,child: Text('Literary',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
+                        child: Align(alignment:Alignment.topLeft,child: Text('Main Stage',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
                       ),
                       Container(
                           height: 165,
                             child: StreamBuilder<QuerySnapshot>(
                                 stream: FirebaseFirestore.instance
-                                    .collection('Literature')
+                                    .collection('Main Stage').orderBy('no',descending:false)
                                     .snapshots(),
                                 builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                                   if (!snapshot.hasData) {
@@ -141,14 +148,14 @@ class _eventsState extends State<events> {
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                        child: Align(alignment:Alignment.topLeft,child: Text('AMS',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
+                        child: Align(alignment:Alignment.topLeft,child: Text('Informal',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
                       ),
 
                       Container(
                         height: 165,
                             child: StreamBuilder<QuerySnapshot>(
                                 stream: FirebaseFirestore.instance
-                                    .collection('AMS')
+                                    .collection('Informal').orderBy('no',descending:false)
                                     .snapshots(),
                                 builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                                   if (!snapshot.hasData) {
@@ -177,151 +184,13 @@ class _eventsState extends State<events> {
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                        child: Align(alignment:Alignment.topLeft,child: Text('Fine Arts',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
-                      ),
-                      Container(
-                        height: 165,
-                            child: StreamBuilder<QuerySnapshot>(
-                                stream: FirebaseFirestore.instance
-                                    .collection('Fine Arts')
-                                    .snapshots(),
-                                builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                                  if (!snapshot.hasData) {
-                                    return Center(child: CircularProgressIndicator());
-                                  }
-                                  final documentSnapshotList = snapshot.data!.docs;
-                                  documentSnapshotList.forEach((element) {
-                                    name3.add(element['name']);
-                                    desc3.add(element['details']);
-                                    date3.add(element['date']);
-                                    time3.add(element['time']);
-                                    form3.add(element['form']);
-                                    venue3.add(element['venue']);
-                                    url3.add(element['url']);
-                                  });
-                                  c=documentSnapshotList.length;
-                                  final profile = List<Profile>.generate(c, (i) => Profile(name: name3[i],time:time3[i], details: desc3[i], venue: venue3[i], date: date3[i], url: url3[i], form: form3[i],));
-                                  return ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: c,
-                                    itemBuilder: (context, index) {
-                                      return eventpage(profile: profile[index],ind:index);},
-                                  );
-                                }),
-                          ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                        child: Align(alignment:Alignment.topLeft,child: Text('Dance',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
-                      ),
-                      Container(
-                        height: 165,
-                        child: StreamBuilder<QuerySnapshot>(
-                            stream: FirebaseFirestore.instance
-                                .collection('Dance')
-                                .snapshots(),
-                            builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                              if (!snapshot.hasData) {
-                                return Center(child: CircularProgressIndicator());
-                              }
-                              final documentSnapshotList = snapshot.data!.docs;
-                              documentSnapshotList.forEach((element) {
-                                name4.add(element['name']);
-                                desc4.add(element['details']);
-                                form4.add(element['form']);
-                                date4.add(element['date']);
-                                time4.add(element['time']);
-                                venue4.add(element['venue']);
-                                url4.add(element['url']);
-                              });
-                              c=documentSnapshotList.length;
-                              final profile = List<Profile>.generate(c, (i) => Profile(name: name4[i],time:time4[i], details: desc4[i], venue: venue4[i], date: date4[i], url: url4[i], form: form4[i],));
-                                return ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: c,
-                                itemBuilder: (context, index) {
-                                  return eventpage(profile: profile[index],ind:index);},
-                              );
-                            }),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                        child: Align(alignment:Alignment.topLeft,child: Text('Dramatics',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
-                      ),
-                      Container(
-                        height: 165,
-                        child: StreamBuilder<QuerySnapshot>(
-                            stream: FirebaseFirestore.instance
-                                .collection('Dramatics')
-                                .snapshots(),
-                            builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                              if (!snapshot.hasData) {
-                                return Center(child: CircularProgressIndicator());
-                              }
-                              final documentSnapshotList = snapshot.data!.docs;
-                              documentSnapshotList.forEach((element) {
-                                name5.add(element['name']);
-                                desc5.add(element['details']);
-                                date5.add(element['date']);
-                                time5.add(element['time']);
-                                form5.add(element['form']);
-                                venue5.add(element['venue']);
-                                url5.add(element['url']);
-                              });
-                              c=documentSnapshotList.length;
-                              final profile = List<Profile>.generate(c, (i) => Profile(name: name5[i],time:time5[i], details: desc5[i], venue: venue5[i], date: date5[i], url: url5[i], form: form5[i],));
-                              return ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: c,
-                                itemBuilder: (context, index) {
-                                  return eventpage(profile: profile[index],ind:index);},
-                              );
-                            }),
-
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                        child: Align(alignment:Alignment.topLeft,child: Text('Music',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
-                      ),
-                      Container(
-                        height: 165,
-                        child: StreamBuilder<QuerySnapshot>(
-                            stream: FirebaseFirestore.instance
-                                .collection('Music')
-                                .snapshots(),
-                            builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                              if (!snapshot.hasData) {
-                                return Center(child: CircularProgressIndicator());
-                              }
-                              final documentSnapshotList = snapshot.data!.docs;
-                              documentSnapshotList.forEach((element) {
-                                name6.add(element['name']);
-                                desc6.add(element['details']);
-                                date6.add(element['date']);
-                                time6.add(element['time']);
-                                venue6.add(element['venue']);
-                                url6.add(element['url']);
-                                form6.add(element['form']);
-                              });
-                              c=documentSnapshotList.length;
-                              final profile = List<Profile>.generate(c, (i) => Profile(name: name6[i],time:time6[i], details: desc6[i], venue: venue6[i], date: date6[i], url: url[i], form: form6[i],));
-                              return ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: c,
-                                itemBuilder: (context, index) {
-                                  return eventpage(profile: profile[index],ind:index);},
-                              );
-                            }),
-
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
                         child: Align(alignment:Alignment.topLeft,child: Text('Gaming',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
                       ),
                       Container(
                         height: 165,
                         child: StreamBuilder<QuerySnapshot>(
                             stream: FirebaseFirestore.instance
-                                .collection('Gaming')
+                                .collection('Gaming').orderBy('no',descending:false)
                                 .snapshots(),
                             builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                               if (!snapshot.hasData) {
@@ -350,13 +219,186 @@ class _eventsState extends State<events> {
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                        child: Align(alignment:Alignment.topLeft,child: Text('Informal',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
+                        child: Align(alignment:Alignment.topLeft,child: Text('Genetix',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
                       ),
                       Container(
                         height: 165,
                         child: StreamBuilder<QuerySnapshot>(
                             stream: FirebaseFirestore.instance
-                                .collection('Informal')
+                                .collection('Dance').orderBy('no',descending:false)
+                                .snapshots(),
+                            builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                              if (!snapshot.hasData) {
+                                return Center(child: CircularProgressIndicator());
+                              }
+                              final documentSnapshotList = snapshot.data!.docs;
+                              documentSnapshotList.forEach((element) {
+                                name4.add(element['name']);
+                                desc4.add(element['details']);
+                                form4.add(element['form']);
+                                date4.add(element['date']);
+                                time4.add(element['time']);
+                                venue4.add(element['venue']);
+                                url4.add(element['url']);
+                              });
+                              c=documentSnapshotList.length;
+                              final profile = List<Profile>.generate(c, (i) => Profile(name: name4[i],time:time4[i], details: desc4[i], venue: venue4[i], date: date4[i], url: url4[i], form: form4[i],));
+                              return ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: c,
+                                itemBuilder: (context, index) {
+                                  return eventpage(profile: profile[index],ind:index);},
+                              );
+                            }),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
+                        child: Align(alignment:Alignment.topLeft,child: Text('Nirmiti',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
+                      ),
+                      Container(
+                        height: 165,
+                            child: StreamBuilder<QuerySnapshot>(
+                                stream: FirebaseFirestore.instance
+                                    .collection('Fine Arts').orderBy('no',descending:false)
+                                    .snapshots(),
+                                builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                                  if (!snapshot.hasData) {
+                                    return Center(child: CircularProgressIndicator());
+                                  }
+                                  final documentSnapshotList = snapshot.data!.docs;
+                                  documentSnapshotList.forEach((element) {
+                                    name3.add(element['name']);
+                                    desc3.add(element['details']);
+                                    date3.add(element['date']);
+                                    time3.add(element['time']);
+                                    form3.add(element['form']);
+                                    venue3.add(element['venue']);
+                                    url3.add(element['url']);
+                                  });
+                                  c=documentSnapshotList.length;
+                                  final profile = List<Profile>.generate(c, (i) => Profile(name: name3[i],time:time3[i], details: desc3[i], venue: venue3[i], date: date3[i], url: url3[i], form: form3[i],));
+                                  return ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: c,
+                                    itemBuilder: (context, index) {
+                                      return eventpage(profile: profile[index],ind:index);},
+                                  );
+                                }),
+                          ),
+
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
+                        child: Align(alignment:Alignment.topLeft,child: Text('Rangtarangni',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
+                      ),
+                      Container(
+                        height: 165,
+                        child: StreamBuilder<QuerySnapshot>(
+                            stream: FirebaseFirestore.instance
+                                .collection('Dramatics').orderBy('no',descending:false)
+                                .snapshots(),
+                            builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                              if (!snapshot.hasData) {
+                                return Center(child: CircularProgressIndicator());
+                              }
+                              final documentSnapshotList = snapshot.data!.docs;
+                              documentSnapshotList.forEach((element) {
+                                name5.add(element['name']);
+                                desc5.add(element['details']);
+                                date5.add(element['date']);
+                                time5.add(element['time']);
+                                form5.add(element['form']);
+                                venue5.add(element['venue']);
+                                url5.add(element['url']);
+                              });
+                              c=documentSnapshotList.length;
+                              final profile = List<Profile>.generate(c, (i) => Profile(name: name5[i],time:time5[i], details: desc5[i], venue: venue5[i], date: date5[i], url: url5[i], form: form5[i],));
+                              return ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: c,
+                                itemBuilder: (context, index) {
+                                  return eventpage(profile: profile[index],ind:index);},
+                              );
+                            }),
+
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
+                        child: Align(alignment:Alignment.topLeft,child: Text('Virtuosi',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
+                      ),
+                      Container(
+                        height: 165,
+                        child: StreamBuilder<QuerySnapshot>(
+                            stream: FirebaseFirestore.instance
+                                .collection('Music').orderBy('no',descending:false)
+                                .snapshots(),
+                            builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                              if (!snapshot.hasData) {
+                                return Center(child: CircularProgressIndicator());
+                              }
+                              final documentSnapshotList = snapshot.data!.docs;
+                              documentSnapshotList.forEach((element) {
+                                name6.add(element['name']);
+                                desc6.add(element['details']);
+                                date6.add(element['date']);
+                                time6.add(element['time']);
+                                venue6.add(element['venue']);
+                                url6.add(element['url']);
+                                form6.add(element['form']);
+                              });
+                              c=documentSnapshotList.length;
+                              final profile = List<Profile>.generate(c, (i) => Profile(name: name6[i],time:time6[i], details: desc6[i], venue: venue6[i], date: date6[i], url: url6[i], form: form6[i],));
+                              return ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: c,
+                                itemBuilder: (context, index) {
+                                  return eventpage(profile: profile[index],ind:index);},
+                              );
+                            }),
+
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
+                        child: Align(alignment:Alignment.topLeft,child: Text('AMS',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
+                      ),
+                      Container(
+                        height: 165,
+                        child: StreamBuilder<QuerySnapshot>(
+                            stream: FirebaseFirestore.instance
+                                .collection('AMS').orderBy('no',descending:false)
+                                .snapshots(),
+                            builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                              if (!snapshot.hasData) {
+                                return Center(child: CircularProgressIndicator());
+                              }
+                              final documentSnapshotList = snapshot.data!.docs;
+                              documentSnapshotList.forEach((element) {
+                                name9.add(element['name']);
+                                desc9.add(element['details']);
+                                date9.add(element['date']);
+                                time9.add(element['time']);
+                                form9.add(element['form']);
+                                venue9.add(element['venue']);
+                                url9.add(element['url']);
+                              });
+                              c=documentSnapshotList.length;
+                              final profile = List<Profile>.generate(c, (i) => Profile(name: name9[i],time:time9[i], details: desc9[i], venue: venue9[i], date: date9[i], url: url9[i], form: form9[i],));
+                              return ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: c,
+                                itemBuilder: (context, index) {
+                                  return eventpage(profile: profile[index],ind:index);},
+                              );
+                            }),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
+                        child: Align(alignment:Alignment.topLeft,child: Text('Sarasva',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 20,),))),
+                      ),
+                      Container(
+                        height: 165,
+                        child: StreamBuilder<QuerySnapshot>(
+                            stream: FirebaseFirestore.instance
+                                .collection('Literature').orderBy('no',descending:false)
                                 .snapshots(),
                             builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                               if (!snapshot.hasData) {
