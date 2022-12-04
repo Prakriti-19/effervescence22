@@ -40,29 +40,24 @@ class _eventpageState extends State<eventpage> {
                               width:MediaQuery.of(context).size.width * 0.36,
                               height:MediaQuery.of(context).size.height * 0.3,
                               ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                height:MediaQuery.of(context).size.height * 0.177,
-                              ),
-                              Container(
-                                width:MediaQuery.of(context).size.width * 0.38,
-                                height:MediaQuery.of(context).size.height * 0.04,
-                                child: Padding(
-                                  padding: EdgeInsets.fromLTRB(r,0,0,0),
-                                  child: Text(
-                                    '${widget.profile.name} ',
-                                    style: GoogleFonts.montserrat(
-                                      textStyle:TextStyle(fontSize:11,foreground: Paint()
-                                        ..style = PaintingStyle.stroke
-                                        ..strokeWidth = 0.8
-                                        ..color = Colors.white,
-                                      backgroundColor: Colors.black,),),
-                                  ),
+                          Align(
+                            alignment: Alignment.bottomLeft,
+                            child: Container(
+                              //width:MediaQuery.of(context).size.width * 0.38,
+                              //height:MediaQuery.of(context).size.height * 0.04,
+                              child: Padding(
+                                padding: EdgeInsets.fromLTRB(r,0,0,1.5*r),
+                                child: Text(
+                                  '${widget.profile.name} ',
+                                  style: GoogleFonts.montserrat(
+                                    textStyle:TextStyle(fontSize:11,foreground: Paint()
+                                      ..style = PaintingStyle.stroke
+                                      ..strokeWidth = 0.8
+                                      ..color = Colors.white,
+                                    backgroundColor: Colors.black,),),
                                 ),
                               ),
-                            ],
+                            ),
                           ),
                         ],
                       ),

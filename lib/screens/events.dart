@@ -415,7 +415,7 @@ class _eventsState extends State<events> {
                                 url8.add(element['url']);
                               });
                               c=documentSnapshotList.length;
-                              final profile = List<Profile>.generate(c, (i) => Profile(name: name8[i],time:time8[i], details: desc8[i], venue: venue8[i], date: date8[i], url: url6[i], form: form8[i],));
+                              final profile = List<Profile>.generate(c, (i) => Profile(name: name8[i],time:time8[i], details: desc8[i], venue: venue8[i], date: date8[i], url: url8[i], form: form8[i],));
                               return ListView.builder(
                                 scrollDirection: Axis.horizontal,
                                 itemCount: c,

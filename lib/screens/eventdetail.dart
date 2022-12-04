@@ -104,7 +104,7 @@ class _detailState extends State<detail> {
                         ),
                         Container(
                           child: Text(
-                            '${widget.profile.date} ',
+                            '${widget.profile.time} ',
                             style: GoogleFonts.montserrat(
                               textStyle: TextStyle(
                                   fontWeight: FontWeight.w300,
