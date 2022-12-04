@@ -18,15 +18,16 @@ class _eventpageState extends State<eventpage> {
   @override
 
   Widget build(BuildContext context) {
+    double r=MediaQuery.of(context).size.width*0.021;
     return InkWell(
           onTap: (){Navigator.push(context,
           MaterialPageRoute(builder: (context) => detail(profile: widget.profile, ind: widget.ind)));   },
       child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 7,vertical: 9),
+          padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.01,vertical: MediaQuery.of(context).size.width*0.01),
                     child: Container(
                        decoration: new BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(18))),
-                      height: 140,
-                      width: 130,
+                      height: MediaQuery.of(context).size.height*0.3,
+                      width: MediaQuery.of(context).size.width*0.35,
                       child: Stack(
                         children: [
                           Container(
@@ -49,7 +50,7 @@ class _eventpageState extends State<eventpage> {
                                 width:MediaQuery.of(context).size.width * 0.38,
                                 height:MediaQuery.of(context).size.height * 0.04,
                                 child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(6,0,0,0),
+                                  padding: EdgeInsets.fromLTRB(r,0,0,0),
                                   child: Text(
                                     '${widget.profile.name} ',
                                     style: GoogleFonts.montserrat(
@@ -61,11 +62,6 @@ class _eventpageState extends State<eventpage> {
                                   ),
                                 ),
                               ),
-                              // Text(
-                              //   '${widget.profile.date} ',
-                              //   style: GoogleFonts.montserrat(
-                              //     textStyle:TextStyle(fontWeight: FontWeight.w500, fontSize: 10,color: Colors.white),),
-                              // ),
                             ],
                           ),
                         ],
