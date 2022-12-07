@@ -21,7 +21,7 @@ class _shopState extends State<shop> {
     List<String> type = [];
     List<String> cost = [];
     List<String> form = [];
-
+    List<String> url = [];
     return Scaffold(
         appBar: AppBar(
           title: Text("Shop", style: GoogleFonts.montserrat(
@@ -46,9 +46,10 @@ class _shopState extends State<shop> {
                       type.add(element['type']);
                       cost.add(element['cost']);
                       form.add((element['form']));
+                      url.add(element['url']);
                     });
                     c=documentSnapshotList.length;
-                    final profile = List<Merchdetails>.generate(c, (i) => Merchdetails(name: name[i],type:type[i], desc: desc[i], cost: cost[i], form: form[i]));
+                    final profile = List<Merchdetails>.generate(c, (i) => Merchdetails(name: name[i],type:type[i], desc: desc[i], cost: cost[i], form: form[i], url: url[i]));
                     return ListView.builder(
                       itemCount: c,
                       itemBuilder: (context, index) {

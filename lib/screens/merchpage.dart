@@ -51,8 +51,8 @@ class _merchpageState extends State<merchpage> {
                       ),
                     ),
                       child:Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment:CrossAxisAlignment.start ,
+                        // mainAxisAlignment: MainAxisAlignment.start,
+                        // crossAxisAlignment:CrossAxisAlignment.start ,
                         children: [
                           SizedBox(width: MediaQuery.of(context).size.width * 0.020,),
                           Column(
@@ -61,7 +61,7 @@ class _merchpageState extends State<merchpage> {
                             children: [
                               SizedBox(height: MediaQuery.of(context).size.width * 0.032,),
                               Container(
-                                width: MediaQuery.of(context).size.width * 0.6,
+                                width: MediaQuery.of(context).size.width * 0.8,
                                 child: Text(
                                   '${widget.profile.name} ',
           style: GoogleFonts.montserrat(
@@ -70,14 +70,14 @@ class _merchpageState extends State<merchpage> {
                               ),
                   SizedBox(height: MediaQuery.of(context).size.width * 0.015,),
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.6,
+                    width: MediaQuery.of(context).size.width * 0.9,
                     child: Text(
                       '${widget.profile.type.toUpperCase()} ',
                       style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16,color: Colors.white),
                     ),),
                               SizedBox(height: MediaQuery.of(context).size.width * 0.025,),
                               Container(
-                                width: MediaQuery.of(context).size.width * 0.6,
+                                width: MediaQuery.of(context).size.width * 0.9,
                                 child: Text(
                                   '${widget.profile.desc} ',
                                   style: GoogleFonts.montserrat(
@@ -91,6 +91,7 @@ class _merchpageState extends State<merchpage> {
                                 children: [
                                   Container(width: MediaQuery.of(context).size.width * 0.035,child: Image(image: AssetImage('images/rupee.png'),fit: BoxFit.fill,)),
                                   Container(
+
                                     child: Text(
                                       '${widget.profile.cost}.00 ',
                                       style: GoogleFonts.montserrat(
@@ -102,10 +103,10 @@ class _merchpageState extends State<merchpage> {
                               SizedBox(height: MediaQuery.of(context).size.width * 0.025,),
                             ],
                           ),
-                          Container(
-                              width:MediaQuery.of(context).size.width * 0.32,
-                              height:MediaQuery.of(context).size.height * 0.3,
-                              child: Image(image: AssetImage('images/Effe_logo.png'))),
+                          // Container(
+                          //     width:MediaQuery.of(context).size.width * 0.32,
+                          //     height:MediaQuery.of(context).size.height * 0.25,
+                          //     child: Image(image:NetworkImage(widget.profile.url),fit: BoxFit.fill,)),
                         ],
                       ),
                      ),

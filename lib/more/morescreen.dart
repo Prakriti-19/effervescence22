@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:effervescence22/more/team.dart';
+import 'package:effervescence22/screens/notifications.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,6 +33,31 @@ class _morescreenState extends State<morescreen> {
         child: Column(
           children: [
             SizedBox(height:MediaQuery.of(context).size.height * 0.05,),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 10,20,10),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.black
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Row(
+                    children: [
+                      SizedBox(width :MediaQuery.of(context).size.width * 0.025,),
+                      Icon(
+                        Icons.notifications,
+                       color: Colors.white,
+                      ),
+                      SizedBox(width :MediaQuery.of(context).size.width * 0.013,),
+                      Text('Updates',style: GoogleFonts.montserrat(
+                        textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,
+                            fontSize: 30),),)
+                    ],
+                  ),
+                ),
+                onPressed: () {Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => update()));   },),
+            ),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 10,20,10),
               child: ElevatedButton(
@@ -83,31 +109,6 @@ class _morescreenState extends State<morescreen> {
                 onPressed: () {Navigator.push(context,
                     MaterialPageRoute(builder: (context) => sponsor()));   },),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.fromLTRB(20, 10,20,10),
-            //   child: ElevatedButton(
-            //     style: ElevatedButton.styleFrom(
-            //       primary: Colors.black
-            //     ),
-            //     // color:Colors.grey[900],
-            //     child: Padding(
-            //       padding: const EdgeInsets.symmetric(vertical: 10),
-            //       child: Row(
-            //         children: [
-            //           SizedBox(width :MediaQuery.of(context).size.width * 0.025,),
-            //           ImageIcon(
-            //             AssetImage("images/call.png"),color: Colors.white,
-            //           ),
-            //           SizedBox(width :MediaQuery.of(context).size.width * 0.013,),
-            //           Text('Contact Us',style: GoogleFonts.montserrat(
-            //             textStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,
-            //                 fontSize: 30),),)
-            //         ],
-            //       ),
-            //     ),
-            //     onPressed: () {Navigator.push(context,
-            //         MaterialPageRoute(builder: (context) => about()));   },),
-            // ),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 10,20,10),
               child: ElevatedButton(

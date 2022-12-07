@@ -13,7 +13,7 @@ class developers extends StatefulWidget {
 List<String> name= [];
 List<String> urls=[];
 List<String> wing=[];
-List<String> git=['https://www.instagram.com/<prakriti_193>/','https://www.instagram.com/<prakriti_193>/','https://www.instagram.com/<prakriti_193>/','https://www.instagram.com/<prakriti_193>/','https://www.instagram.com/<prakriti_193>/'];
+List<String> git=['https://github.com/narayanaditya1007','https://github.com/Sam-commit','https://github.com/Prakriti-19','https://github.com/Karma098','https://github.com/maheshwariparth','https://github.com/RibhavBansal'];
 int c=0;
 class _developersState extends State<developers> {
   @override

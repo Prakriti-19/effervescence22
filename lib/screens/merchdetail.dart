@@ -28,15 +28,49 @@ class _merchdetailState extends State<merchdetail> {
               // SizedBox(
               //   height: MediaQuery.of(context).size.height * 0.06,
               // ),
-              Container(
-                  width: MediaQuery.of(context).size.width*0.86,
-                  height: MediaQuery.of(context).size.height * 0.42,
-                  child: Image(
-                    image: AssetImage('images/merch.png'),
-                    fit: BoxFit.fill,
-                  )),
+              InkWell(
+    onTap: (){
+    showDialog(
+    context: context,
+    builder: (ctx) => AlertDialog(
+
+    shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular(20.0))),
+    backgroundColor: Colors.black,
+    actions: <Widget>[
+    TextButton(
+    onPressed: () {
+    Navigator.of(ctx).pop();
+    },
+    child: Container(
+    child: Icon(Icons.close,color: Colors.white,),
+    ),
+    ),
+    Container(
+    decoration: new BoxDecoration(
+    image: DecorationImage(
+    image: NetworkImage(widget.profile.url),fit: BoxFit.cover,
+    ),
+    borderRadius:
+    new BorderRadius.all(new Radius.circular(20.0)),
+    ),
+    height: MediaQuery.of(context).size.height*0.38,
+      width: MediaQuery.of(context).size.width*0.9,
+    ),
+
+      SizedBox(
+        height: MediaQuery.of(context).size.width * 0.034,
+      ),]));},
+                child: Container(
+                    width: MediaQuery.of(context).size.width*0.86,
+                    height: MediaQuery.of(context).size.height * 0.4,
+                    child: Image(
+                      image: NetworkImage(widget.profile.url),
+                      fit: BoxFit.fill,
+                    )),
+              ),
               SizedBox(
-                height: MediaQuery.of(context).size.width * 0.06,
+                height: MediaQuery.of(context).size.width * 0.034,
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 0.95,

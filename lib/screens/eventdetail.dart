@@ -26,13 +26,22 @@ class _detailState extends State<detail> {
           },
           icon: Icon(Icons.arrow_back_ios),
         ),
+        title: Text(
+          '${widget.profile.name} ',
+          style: GoogleFonts.montserrat(
+            textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 29,
+                color: Colors.white),
+          ),
+        ),
         backgroundColor: Colors.black,
       ),
       body: Stack(
         children: [
           Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.49,
+              height: MediaQuery.of(context).size.height * 0.46,
               child: Image(
                 image: NetworkImage(widget.profile.url),
                 fit: BoxFit.fill,
@@ -41,20 +50,20 @@ class _detailState extends State<detail> {
               child: Column(
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.45,
+                height: MediaQuery.of(context).size.height * 0.462,
               ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.95,
-                child: Text(
-                  '${widget.profile.name} ',
-                  style: GoogleFonts.montserrat(
-                    textStyle: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 29,
-                        color: Colors.white),
-                  ),
-                ),
-              ),
+              // Container(
+              //   width: MediaQuery.of(context).size.width * 0.95,
+              //   child: Text(
+              //     '${widget.profile.name} ',
+              //     style: GoogleFonts.montserrat(
+              //       textStyle: TextStyle(
+              //           fontWeight: FontWeight.bold,
+              //           fontSize: 29,
+              //           color: Colors.white),
+              //     ),
+              //   ),
+              // ),
               Container(
                 decoration: BoxDecoration(
                     color: Colors.black87.withOpacity(0.6)),
@@ -176,7 +185,7 @@ class _detailState extends State<detail> {
           )),
           Positioned(
            left: MediaQuery.of(context).size.width*0.8,
-            top: MediaQuery.of(context).size.height*0.46,
+            top: MediaQuery.of(context).size.height*0.4,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
