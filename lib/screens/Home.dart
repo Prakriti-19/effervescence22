@@ -1,9 +1,13 @@
 import 'dart:ui';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:effervescence22/screens/notifications.dart';
 import 'package:effervescence22/screens/temp.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+
+import '../classes/eventprofile.dart';
+import 'eventpage.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({Key? key}) : super(key: key);
@@ -18,11 +22,14 @@ class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     var dt = DateTime.now();
-    var p_hour = (dt.hour);
-    var p_day = (dt.day);
-    var p_min = (dt.minute);
-    var p_sec = (dt.second);
     int _current = 0;
+    List<String> name = [];
+    List<String> desc = [];
+    List<String> date = [];
+    List<String> time = [];
+    List<String> venue = [];
+    List<String> url = [];
+    List<String> form1 = [];
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Container(
@@ -82,51 +89,73 @@ class _HomescreenState extends State<Homescreen> {
               Column(
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.137,
+                    height: MediaQuery.of(context).size.height * 0.27,
                   ),
-                  TweenAnimationBuilder<Duration>(
-                      duration: Duration(
-                          days: 7 - p_day,
-                          hours: 17 - p_hour,
-                          minutes: 60 - p_min,
-                          seconds: 60 - p_sec),
-                      tween: Tween(
-                          begin: Duration(
-                              days: 7 - p_day,
-                              hours: 17 - p_hour,
-                              minutes: 60 - p_min,
-                              seconds: 60 - p_sec),
-                          end: Duration.zero),
-                      onEnd: () {
-                        print('THE WAIT IS OVER');
-                      },
-                      builder: (BuildContext context, Duration value,
-                          Widget? child) {
-                          return Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 1.5),
-                              child: Column(
-                                children: [
-                                  Center(
-                                    child: Text(
-                                      'The Wait Is Finally Over',
-                                      style: GoogleFonts.jollyLodger(
-                                          textStyle: TextStyle(
-                                              letterSpacing: 1.6,
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 35)),
-                                    ),
-                                  )
-                                ],
-                              ));
-                      }),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.width * 0.17,
+                  Center(
+                    child: Text(
+                      'The Wait Is Finally Over',
+                      style: GoogleFonts.jollyLodger(
+                          textStyle: TextStyle(
+                              letterSpacing: 1.6,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 39)),
+                    ),
                   ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.width * 0.02,
-                  ),
+                  // SizedBox(
+                  //   height: MediaQuery.of(context).size.width * 0.1,
+                  // ),
+                  Center(
+                      child: Text('0:0:0',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.anton(
+                              textStyle: TextStyle(
+                                  letterSpacing: 1.9,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 77)))),
+                  Text('HOURS || MINUTES || SECONDS',
+                      style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 24))),
+
+                  // Padding(
+                  //   padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
+                  //   child: Align(alignment:Alignment.topLeft,child: Text('Ongoing Events',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w600,fontSize: 20,),))),
+                  // ),
+                  // Container(
+                  //   height: 140,
+                  //   child: StreamBuilder<QuerySnapshot>(
+                  //       stream: FirebaseFirestore.instance
+                  //           .collection('Main Stage')
+                  //           .snapshots(),
+                  //       builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                  //         if (!snapshot.hasData) {
+                  //           return Center(child: CircularProgressIndicator());
+                  //         }
+                  //         final documentSnapshotList = snapshot.data!.docs;
+                  //         documentSnapshotList.forEach((element) {
+                  //           name.add(element['name']);
+                  //           desc.add(element['details']);
+                  //           date.add(element['date']);
+                  //           time.add(element['time']);
+                  //           venue.add(element['venue']);
+                  //           url.add(element['url']);
+                  //           form1.add(element['form']);
+                  //         });
+                  //         c=documentSnapshotList.length;
+                  //         final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i], url: url[i], form: form1[i],));
+                  //         return ListView.builder(
+                  //           scrollDirection: Axis.horizontal,
+                  //           itemCount: c,
+                  //           itemBuilder: (context, index) {
+                  //             return eventpage(profile: profile[index],ind:index);},
+                  //         );
+                  //       }),
+                  //
+                  // ),
                 ],
               ),
             ],
