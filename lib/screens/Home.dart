@@ -1,13 +1,9 @@
 import 'dart:ui';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:effervescence22/screens/notifications.dart';
-import 'package:effervescence22/screens/temp.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../classes/eventprofile.dart';
-import 'eventpage.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({Key? key}) : super(key: key);
@@ -21,15 +17,6 @@ int f = 0;
 class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
-    var dt = DateTime.now();
-    int _current = 0;
-    List<String> name = [];
-    List<String> desc = [];
-    List<String> date = [];
-    List<String> time = [];
-    List<String> venue = [];
-    List<String> url = [];
-    List<String> form1 = [];
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Container(
@@ -120,42 +107,6 @@ class _HomescreenState extends State<Homescreen> {
                               color: Colors.white,
                               fontWeight: FontWeight.w400,
                               fontSize: 24))),
-
-                  // Padding(
-                  //   padding: const EdgeInsets.fromLTRB(18, 6, 0,0),
-                  //   child: Align(alignment:Alignment.topLeft,child: Text('Ongoing Events',style: GoogleFonts.montserrat(textStyle:TextStyle(color: Colors.white,fontWeight: FontWeight.w600,fontSize: 20,),))),
-                  // ),
-                  // Container(
-                  //   height: 140,
-                  //   child: StreamBuilder<QuerySnapshot>(
-                  //       stream: FirebaseFirestore.instance
-                  //           .collection('Main Stage')
-                  //           .snapshots(),
-                  //       builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                  //         if (!snapshot.hasData) {
-                  //           return Center(child: CircularProgressIndicator());
-                  //         }
-                  //         final documentSnapshotList = snapshot.data!.docs;
-                  //         documentSnapshotList.forEach((element) {
-                  //           name.add(element['name']);
-                  //           desc.add(element['details']);
-                  //           date.add(element['date']);
-                  //           time.add(element['time']);
-                  //           venue.add(element['venue']);
-                  //           url.add(element['url']);
-                  //           form1.add(element['form']);
-                  //         });
-                  //         c=documentSnapshotList.length;
-                  //         final profile = List<Profile>.generate(c, (i) => Profile(name: name[i],time:time[i], details: desc[i], venue: venue[i], date: date[i], url: url[i], form: form1[i],));
-                  //         return ListView.builder(
-                  //           scrollDirection: Axis.horizontal,
-                  //           itemCount: c,
-                  //           itemBuilder: (context, index) {
-                  //             return eventpage(profile: profile[index],ind:index);},
-                  //         );
-                  //       }),
-                  //
-                  // ),
                 ],
               ),
             ],
